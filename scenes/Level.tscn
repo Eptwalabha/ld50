@@ -1,16 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/player/FPSPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/supermarket/Supermarket.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Level.gd" type="Script" id=3]
+[ext_resource path="res://scenes/ui/dialog/Dialog.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ui/UIIntro.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
 background_color = Color( 1, 1, 1, 1 )
 background_energy = 0.0
 ambient_light_color = Color( 0.933333, 0.933333, 0.933333, 1 )
-ambient_light_energy = 0.65
+ambient_light_energy = 0.8
 fog_enabled = true
+fog_sun_amount = 0.08
+tonemap_mode = 2
 ssao_enabled = true
 ssao_radius = 0.2
 ssao_bias = 0.001
@@ -31,7 +35,16 @@ transform = Transform( 0.96006, 5.07725e-09, -0.279795, 0.267821, 0.289416, 0.91
 light_color = Color( 0.933333, 0.933333, 0.933333, 1 )
 light_energy = 0.5
 shadow_enabled = true
+shadow_color = Color( 0.435294, 0.435294, 0.435294, 1 )
 
+[node name="Dialog" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="UIIntro" parent="." instance=ExtResource( 5 )]
+
+[connection signal="announce_dialog_ended" from="Supermarket" to="." method="_on_Supermarket_announce_dialog_ended"]
+[connection signal="announce_dialog_started" from="Supermarket" to="." method="_on_Supermarket_announce_dialog_started"]
 [connection signal="supermarket_generated" from="Supermarket" to="." method="_on_Supermarket_supermarket_generated"]
 [connection signal="interact_exited" from="FPSPlayer" to="." method="_on_FPSPlayer_interact_exited"]
 [connection signal="interact_hovered" from="FPSPlayer" to="." method="_on_FPSPlayer_interact_hovered"]
+[connection signal="faded_out" from="UIIntro" to="." method="_on_UIIntro_faded_out"]

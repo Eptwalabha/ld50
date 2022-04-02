@@ -139,14 +139,20 @@ func update_physic_state(delta: float) -> void:
 				_state = STATE.TRANSITION
 				_transition_time = 0.0
 
-func _on_Ray_area_entered(area: Area) -> void:
-	_current_interact = area
-	emit_signal("interact_hovered", _current_interact)
+func interact_with() -> void:
+	if _current_interact is InteractTrigger:
+		_current_interact.interact_with(self)
+		_current_interact = null
+
+func _on_Ray_area_entered(area) -> void:
+	if area is InteractTrigger:
+		_current_interact = area
+		emit_signal("interact_hovered", _current_interact)
 
 func _on_Ray_area_exited() -> void:
 	if _current_interact is InteractTrigger:
 		emit_signal("interact_exited", _current_interact)
-		_current_interact = null
+	_current_interact = null
 
 func _on_Timer_timeout() -> void:
 	if interact_ray.is_colliding():

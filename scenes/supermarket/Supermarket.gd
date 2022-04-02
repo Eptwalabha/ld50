@@ -1,10 +1,13 @@
 class_name Supermarket extends Spatial
 
 signal supermarket_generated
+signal announce_dialog_started(key)
+signal announce_dialog_ended
 
 var Item = preload("res://scenes/supermarket/item/PickableItem.tscn")
 
 func _ready() -> void:
+	
 	pass
 
 func generate() -> void:
@@ -28,4 +31,11 @@ func _on_spawn_item(the_position: Vector3) -> void:
 	good.global_transform.origin = the_position
 
 func start_level() -> void:
+#	if not Data.DEBUG:
 	$AnimationPlayer.play("pa-closing")
+
+func announce_dialog(key: String) -> void:
+	emit_signal("announce_dialog_started", key)
+
+func announce_dialog_end() -> void:
+	emit_signal("announce_dialog_ended")

@@ -26,3 +26,5 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0 )
 mesh = SubResource( 3 )
 material/0 = null
+
+[connection signal="interacted_with" from="InteractTrigger" to="." method="_on_InteractTrigger_interacted_with"]

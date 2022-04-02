@@ -27,9 +27,14 @@ const MAX_SLOP : float = deg2rad(15.0)
 
 const JUMP_HIGHT : float = 4.5
 
-var scarcity : float = 0.5
 var first_time : bool = true
 var using_controller : bool = true
+
+var scarcity : float = 0.5
+var initial_cash : int = 100
+var player_cash : int = 100
+var money_per_day : int = 20
+var day : int = 1
 
 enum INPUT_TYPE {
 	KEY,

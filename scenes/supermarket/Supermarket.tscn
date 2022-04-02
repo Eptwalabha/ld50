@@ -5,15 +5,13 @@
 [ext_resource path="res://assets/sound/supermarket/announcement-jingle.mp3" type="AudioStream" id=3]
 [ext_resource path="res://scenes/supermarket/Supermarket.gd" type="Script" id=4]
 [ext_resource path="res://scenes/supermarket/shelves/variation/ShelveFruit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/material/floor-tile.tres" type="Material" id=6]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 50, 0.5, 50 )
 
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 100, 1, 100 )
-
-[sub_resource type="SpatialMaterial" id=5]
-albedo_color = Color( 0.772549, 0.772549, 0.772549, 1 )
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -44,7 +42,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=4]
 resource_name = "pa-closing"
-length = 5.0
+length = 16.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Jingle:playing")
 tracks/0/interp = 1
@@ -69,6 +67,35 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3.4, 4.2, 9.6, 12.9, 15.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "pa-jingle" ],
+"method": "announce_dialog"
+}, {
+"args": [  ],
+"method": "announce_dialog_end"
+}, {
+"args": [ "pa-attention_customer" ],
+"method": "announce_dialog"
+}, {
+"args": [ "pa-please_checkout" ],
+"method": "announce_dialog"
+}, {
+"args": [ "pa-thanks_for_shoping" ],
+"method": "announce_dialog"
+}, {
+"args": [  ],
+"method": "announce_dialog_end"
+} ]
+}
 
 [node name="Supermarket" type="Spatial"]
 script = ExtResource( 4 )
@@ -86,7 +113,7 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Floor"]
 mesh = SubResource( 2 )
-material/0 = SubResource( 5 )
+material/0 = ExtResource( 6 )
 
 [node name="Jingle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
@@ -97,7 +124,7 @@ stream = ExtResource( 1 )
 bus = "pa"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "pa-closing"
+autoplay = "RESET"
 anims/RESET = SubResource( 3 )
 anims/pa-closing = SubResource( 4 )
 
