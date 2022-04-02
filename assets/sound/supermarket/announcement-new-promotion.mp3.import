@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/announcement-new-promotion.mp3-96394ec6ecd6237266b90b89bc021545.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/supermarket/announcement-new-promotion.mp3"
+dest_files=[ "res://.import/announcement-new-promotion.mp3-96394ec6ecd6237266b90b89bc021545.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -34,6 +34,9 @@ func start_level() -> void:
 #	if not Data.DEBUG:
 	$AnimationPlayer.play("pa-closing")
 
+func new_promotion() -> void:
+	$AnimationPlayer.play("pa-new_promotion")
+
 func announce_dialog(key: String) -> void:
 	emit_signal("announce_dialog_started", key)
 

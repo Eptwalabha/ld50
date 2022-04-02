@@ -7,9 +7,9 @@
 params_diffuse_mode = 1
 albedo_color = Color( 0.764706, 0.792157, 0.847059, 1 )
 albedo_texture = ExtResource( 1 )
-metallic = 0.2
-metallic_specular = 1.0
+metallic = 0.15
+metallic_specular = 0.57
 metallic_texture = ExtResource( 2 )
-roughness = 0.3
+roughness = 0.75
 roughness_texture = ExtResource( 2 )
 uv1_triplanar = true

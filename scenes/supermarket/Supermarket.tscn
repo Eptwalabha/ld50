@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/sound/supermarket/closing-announcement.mp3" type="AudioStream" id=1]
 [ext_resource path="res://scenes/supermarket/shelves/variation/ShelveRegular4.tscn" type="PackedScene" id=2]
@@ -6,11 +6,13 @@
 [ext_resource path="res://scenes/supermarket/Supermarket.gd" type="Script" id=4]
 [ext_resource path="res://scenes/supermarket/shelves/variation/ShelveFruit.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/material/floor-tile.tres" type="Material" id=6]
+[ext_resource path="res://assets/sound/supermarket/announcement-new-promotion.mp3" type="AudioStream" id=7]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 50, 0.5, 50 )
 
 [sub_resource type="CubeMesh" id=2]
+material = ExtResource( 6 )
 size = Vector3( 100, 1, 100 )
 
 [sub_resource type="Animation" id=3]
@@ -28,7 +30,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Closing:playing")
+tracks/1/path = NodePath("Announce:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -38,6 +40,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Announce:stream")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 1 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -56,7 +70,7 @@ tracks/0/keys = {
 "values": [ false, true, false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Closing:playing")
+tracks/1/path = NodePath("Announce:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -96,6 +110,81 @@ tracks/2/keys = {
 "method": "announce_dialog_end"
 } ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Announce:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "pa-new_promotion"
+length = 7.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Jingle:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Announce:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3.4, 4.2, 7.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "pa-jingle" ],
+"method": "announce_dialog"
+}, {
+"args": [  ],
+"method": "announce_dialog_end"
+}, {
+"args": [ "pa-new_promotion" ],
+"method": "announce_dialog"
+}, {
+"args": [  ],
+"method": "announce_dialog_end"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Announce:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ) ]
+}
 
 [node name="Supermarket" type="Spatial"]
 script = ExtResource( 4 )
@@ -113,13 +202,13 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Floor"]
 mesh = SubResource( 2 )
-material/0 = ExtResource( 6 )
+material/0 = null
 
 [node name="Jingle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 bus = "pa"
 
-[node name="Closing" type="AudioStreamPlayer" parent="."]
+[node name="Announce" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 bus = "pa"
 
@@ -127,6 +216,7 @@ bus = "pa"
 autoplay = "RESET"
 anims/RESET = SubResource( 3 )
 anims/pa-closing = SubResource( 4 )
+anims/pa-new_promotion = SubResource( 5 )
 
 [node name="Shelves" type="Spatial" parent="."]
 

@@ -42,9 +42,13 @@ visible = false
 
 [node name="UIIntro" parent="." instance=ExtResource( 5 )]
 
+[node name="Promotion" type="Timer" parent="."]
+wait_time = 60.0
+
 [connection signal="announce_dialog_ended" from="Supermarket" to="." method="_on_Supermarket_announce_dialog_ended"]
 [connection signal="announce_dialog_started" from="Supermarket" to="." method="_on_Supermarket_announce_dialog_started"]
 [connection signal="supermarket_generated" from="Supermarket" to="." method="_on_Supermarket_supermarket_generated"]
 [connection signal="interact_exited" from="FPSPlayer" to="." method="_on_FPSPlayer_interact_exited"]
 [connection signal="interact_hovered" from="FPSPlayer" to="." method="_on_FPSPlayer_interact_hovered"]
 [connection signal="faded_out" from="UIIntro" to="." method="_on_UIIntro_faded_out"]
+[connection signal="timeout" from="Promotion" to="." method="_on_Promotion_timeout"]

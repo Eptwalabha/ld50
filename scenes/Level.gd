@@ -3,8 +3,13 @@ extends Spatial
 onready var player : FPSPlayer = $FPSPlayer
 onready var supermarket : Supermarket = $Supermarket
 onready var intro : UIIntro = $UIIntro
+onready var promotion_timer : Timer = $Promotion
 
 var current_item : InteractTrigger
+
+var player_credits : int = 0
+var player_daily_credits : int = 100
+var player_objective : int = 0
 
 func _ready() -> void:
 	intro.start("title", "test")
@@ -54,4 +59,8 @@ func _on_Supermarket_announce_dialog_started(key) -> void:
 
 func _on_UIIntro_faded_out() -> void:
 	supermarket.start_level()
+	promotion_timer.start()
 	player.has_control = true
+
+func _on_Promotion_timeout() -> void:
+	supermarket.new_promotion()
