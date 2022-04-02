@@ -11,3 +11,5 @@ exports/
 *.translation
 *.png~
 
+*.au
+*.aup
