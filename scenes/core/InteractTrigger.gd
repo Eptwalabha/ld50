@@ -34,3 +34,9 @@ func update_interactive_box_visibility(is_box_visible: bool) -> void:
 
 func _on_Cooldown_timeout() -> void:
 	activate(true)
+
+func hover() -> void:
+	$MeshInstance.show()
+
+func exit() -> void:
+	$MeshInstance.hide()

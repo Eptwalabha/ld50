@@ -27,7 +27,7 @@ const MAX_SLOP : float = deg2rad(15.0)
 
 const JUMP_HIGHT : float = 4.5
 
-
+var scarcity : float = 0.5
 var first_time : bool = true
 var using_controller : bool = true
 

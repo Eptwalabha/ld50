@@ -165,6 +165,3 @@ func display_crosshair(visible: bool) -> void:
 func set_fov(new_fov: float) -> void:
 	camera.fov = new_fov
 
-
-func _on_FPSPlayer_interact_hovered(area) -> void:
-	print(area)

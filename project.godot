@@ -28,18 +28,30 @@ _global_script_classes=[ {
 "class": "PickableItem",
 "language": "GDScript",
 "path": "res://scenes/supermarket/item/PickableItem.gd"
+}, {
+"base": "StaticBody",
+"class": "Shelve",
+"language": "GDScript",
+"path": "res://scenes/supermarket/shelves/Shelve.gd"
+}, {
+"base": "Spatial",
+"class": "Supermarket",
+"language": "GDScript",
+"path": "res://scenes/supermarket/Supermarket.gd"
 } ]
 _global_script_class_icons={
 "FPSPlayer": "",
 "GameConfig": "",
 "InteractTrigger": "",
-"PickableItem": ""
+"PickableItem": "",
+"Shelve": "",
+"Supermarket": ""
 }
 
 [application]
 
 config/name="ld50"
-run/main_scene="res://scenes/supermarket/Supermarket.tscn"
+run/main_scene="res://scenes/Level.tscn"
 config/icon="res://icon.png"
 config/version="0.0.0"
 
@@ -132,6 +144,11 @@ context_action={
 3d_physics/layer_1="player"
 3d_physics/layer_2="static"
 3d_physics/layer_3="item"
+
+[locale]
+
+translations=PoolStringArray( "res://assets/translation/translations.en.translation", "res://assets/translation/translations.fr.translation" )
+locale_filter=[ 1, [ "en", "fr" ] ]
 
 [physics]
 

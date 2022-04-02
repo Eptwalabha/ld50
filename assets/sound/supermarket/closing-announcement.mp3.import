@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/closing-announcement.mp3-d409e013c004ac3ca92775e064db637c.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/supermarket/closing-announcement.mp3"
+dest_files=[ "res://.import/closing-announcement.mp3-d409e013c004ac3ca92775e064db637c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
