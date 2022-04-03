@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/supermarket/shelves/Shelve.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/model/supermarket/ShelveRegular4Model.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/supermarket/shelves/ItemPosition.tscn" type="PackedScene" id=3]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.5, 1, 2 )
 
 [node name="ShelvedRegular4" instance=ExtResource( 1 )]
+items_strs = "can_of_soup,toilet_paper"
 
 [node name="ShelveRegular4Model" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -14,122 +16,56 @@ extents = Vector3( 0.5, 1, 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 1 )
 
-[node name="Position3D1" type="Position3D" parent="Spawn" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 0.56002, 1.62829 )
+[node name="ItemPosition1" parent="Spawn" index="0" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 0.579335, -1 )
 
-[node name="Position3D2" type="Position3D" parent="Spawn" index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 0.56002, 1.62829 )
+[node name="ItemPosition2" parent="Spawn" index="1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 0.579335, 0 )
 
-[node name="Position3D3" type="Position3D" parent="Spawn" index="2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 1.06087, 1.62829 )
+[node name="ItemPosition3" parent="Spawn" index="2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 0.579335, 1 )
 
-[node name="Position3D4" type="Position3D" parent="Spawn" index="3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 1.06087, 1.62829 )
+[node name="ItemPosition4" parent="Spawn" index="3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 1.07203, -1 )
 
-[node name="Position3D5" type="Position3D" parent="Spawn" index="4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 1.65378, 1.62829 )
+[node name="ItemPosition5" parent="Spawn" index="4" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 1.07203, 0 )
 
-[node name="Position3D6" type="Position3D" parent="Spawn" index="5"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 1.65378, 1.62829 )
+[node name="ItemPosition6" parent="Spawn" index="5" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 1.07203, 1 )
 
-[node name="Position3D7" type="Position3D" parent="Spawn" index="6"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 0.0608904, 1.62829 )
+[node name="ItemPosition7" parent="Spawn" index="6" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 1.67982, -1 )
 
-[node name="Position3D8" type="Position3D" parent="Spawn" index="7"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 0.0608904, 1.62829 )
+[node name="ItemPosition8" parent="Spawn" index="7" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 1.67982, 0 )
 
-[node name="Position3D9" type="Position3D" parent="Spawn" index="8"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 0.56002, 0.840692 )
+[node name="ItemPosition9" parent="Spawn" index="8" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 1.67982, 1 )
 
-[node name="Position3D10" type="Position3D" parent="Spawn" index="9"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 0.56002, 0.840692 )
+[node name="ItemPosition10" parent="Spawn" index="9" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291477, 0.579335, -1 )
 
-[node name="Position3D11" type="Position3D" parent="Spawn" index="10"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 1.06087, 0.840692 )
+[node name="ItemPosition11" parent="Spawn" index="10" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291477, 0.579335, 0 )
 
-[node name="Position3D12" type="Position3D" parent="Spawn" index="11"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 1.06087, 0.840692 )
+[node name="ItemPosition12" parent="Spawn" index="11" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291477, 0.579335, 1 )
 
-[node name="Position3D13" type="Position3D" parent="Spawn" index="12"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 1.65378, 0.840692 )
+[node name="ItemPosition13" parent="Spawn" index="12" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291477, 1.07203, -1 )
 
-[node name="Position3D14" type="Position3D" parent="Spawn" index="13"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 1.65378, 0.840692 )
+[node name="ItemPosition14" parent="Spawn" index="13" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291477, 1.07203, 0 )
 
-[node name="Position3D15" type="Position3D" parent="Spawn" index="14"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 0.0608904, 0.840692 )
+[node name="ItemPosition15" parent="Spawn" index="14" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291477, 1.07203, 1 )
 
-[node name="Position3D16" type="Position3D" parent="Spawn" index="15"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 0.0608904, 0.840692 )
+[node name="ItemPosition16" parent="Spawn" index="15" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291477, 1.67982, -1 )
 
-[node name="Position3D17" type="Position3D" parent="Spawn" index="16"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 0.56002, 0 )
+[node name="ItemPosition17" parent="Spawn" index="16" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291477, 1.67982, 0 )
 
-[node name="Position3D18" type="Position3D" parent="Spawn" index="17"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 0.56002, 0 )
-
-[node name="Position3D19" type="Position3D" parent="Spawn" index="18"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 1.06087, 0 )
-
-[node name="Position3D20" type="Position3D" parent="Spawn" index="19"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 1.06087, 0 )
-
-[node name="Position3D21" type="Position3D" parent="Spawn" index="20"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 1.65378, 0 )
-
-[node name="Position3D22" type="Position3D" parent="Spawn" index="21"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 1.65378, 0 )
-
-[node name="Position3D23" type="Position3D" parent="Spawn" index="22"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 0.0608904, 0 )
-
-[node name="Position3D24" type="Position3D" parent="Spawn" index="23"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 0.0608904, 0 )
-
-[node name="Position3D25" type="Position3D" parent="Spawn" index="24"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 0.56002, -0.778746 )
-
-[node name="Position3D26" type="Position3D" parent="Spawn" index="25"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 0.56002, -0.778746 )
-
-[node name="Position3D27" type="Position3D" parent="Spawn" index="26"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 1.06087, -0.778746 )
-
-[node name="Position3D28" type="Position3D" parent="Spawn" index="27"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 1.06087, -0.778746 )
-
-[node name="Position3D29" type="Position3D" parent="Spawn" index="28"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 1.65378, -0.778746 )
-
-[node name="Position3D30" type="Position3D" parent="Spawn" index="29"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 1.65378, -0.778746 )
-
-[node name="Position3D31" type="Position3D" parent="Spawn" index="30"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 0.0608904, -0.778746 )
-
-[node name="Position3D32" type="Position3D" parent="Spawn" index="31"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 0.0608904, -0.778746 )
-
-[node name="Position3D33" type="Position3D" parent="Spawn" index="32"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 0.56002, -1.63714 )
-
-[node name="Position3D34" type="Position3D" parent="Spawn" index="33"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 0.56002, -1.63714 )
-
-[node name="Position3D35" type="Position3D" parent="Spawn" index="34"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 1.06087, -1.63714 )
-
-[node name="Position3D36" type="Position3D" parent="Spawn" index="35"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 1.06087, -1.63714 )
-
-[node name="Position3D37" type="Position3D" parent="Spawn" index="36"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 1.65378, -1.63714 )
-
-[node name="Position3D38" type="Position3D" parent="Spawn" index="37"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 1.65378, -1.63714 )
-
-[node name="Position3D39" type="Position3D" parent="Spawn" index="38"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291644, 0.0608904, -1.63714 )
-
-[node name="Position3D40" type="Position3D" parent="Spawn" index="39"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.277301, 0.0608904, -1.63714 )
+[node name="ItemPosition18" parent="Spawn" index="17" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291477, 1.67982, 1 )

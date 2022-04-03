@@ -92,98 +92,99 @@ enum GROCERY_ITEMS {
 	SUGAR
 }
 
-const ITEM_NAME_TO_ENUM = {
-	"can_of_soup": GROCERY_ITEMS.CAN_OF_SOUP,
-	"box_of_cereal": GROCERY_ITEMS.BOX_OF_CEREAL,
-	"meat": GROCERY_ITEMS.MEAT,
-	"soda_01": GROCERY_ITEMS.SODA_1,
-	"soda_02": GROCERY_ITEMS.SODA_2,
-	"toilet_paper": GROCERY_ITEMS.TOILET_PAPER,
-	"coffee": GROCERY_ITEMS.COFFEE,
-	"snack_01": GROCERY_ITEMS.SNACKS_1,
-	"snack_02": GROCERY_ITEMS.SNACKS_2,
-	"instant_noodle": GROCERY_ITEMS.INSTANT_NOODLE,
-	"fruits": GROCERY_ITEMS.FRUITS,
-	"vegetables": GROCERY_ITEMS.VEGETABLES,
-	"sugar": GROCERY_ITEMS.SUGAR
-}
+const ITEMS = [
+	"can_of_soup",
+	"box_of_cereal",
+	"meat",
+	"soda_01",
+	"soda_02",
+	"toilet_paper",
+	"coffee",
+	"snacks_01",
+	"snacks_02",
+	"instant_noodle",
+	"fruits",
+	"vegetables",
+	"sugar"
+]
 
-const LEVELS = {
-	"lvl_1": {
+const LEVELS = [
+	{
 		"list": [
-			[GROCERY_ITEMS.FRUITS, 2],
-			[GROCERY_ITEMS.VEGETABLES, 2],
-			[GROCERY_ITEMS.MEAT, 1],
-			[GROCERY_ITEMS.CAN_OF_SOUP, 1],
-			[GROCERY_ITEMS.TOILET_PAPER, 1]
+			["fruits", 2],
+			["vegetables", 2],
+			["meat", 1],
+			["can_of_soup", 1],
+			["toilet_paper", 1]
 		],
 		"promotion": 1,
 		"disturbance": 0
 	},
-	"lvl_2": {
+	{
 		"list": [
-			[GROCERY_ITEMS.FRUITS, 2],
-			[GROCERY_ITEMS.MEAT, 2],
-			[GROCERY_ITEMS.BOX_OF_CEREAL, 2],
-			[GROCERY_ITEMS.COFFEE, 1],
-			[GROCERY_ITEMS.INSTANT_NOODLE, 1],
-			[GROCERY_ITEMS.TOILET_PAPER, 1],
-			[GROCERY_ITEMS.SNACKS_1, 1],
+			["fruits", 2],
+			["meat", 2],
+			["box_of_cereal", 2],
+			["coffee", 1],
+			["instant_noodle", 1],
+			["toilet_paper", 1],
+			["snacks_01", 1],
 		],
 		"promotion": 2,
 		"disturbance": 0
 	},
-	"lvl_3": {
+	{
 		"list": [
-			[GROCERY_ITEMS.SODA_1, 1],
-			[GROCERY_ITEMS.BOX_OF_CEREAL, 3],
-			[GROCERY_ITEMS.VEGETABLES, 1],
-			[GROCERY_ITEMS.MEAT, 2],
-			[GROCERY_ITEMS.CAN_OF_SOUP, 1],
-			[GROCERY_ITEMS.COFFEE, 2],
-			[GROCERY_ITEMS.SUGAR, 1],
-			[GROCERY_ITEMS.TOILET_PAPER, 1],
-			[GROCERY_ITEMS.SNACKS_2, 1],
+			["soda_01", 1],
+			["box_of_cereal", 3],
+			["vegetables", 1],
+			["meat", 2],
+			["can_of_soup", 1],
+			["coffee", 2],
+			["sugar", 1],
+			["toilet_paper", 1],
+			["snacks_02", 1],
 		],
 		"promotion": 3,
 		"disturbance": 1
 	},
-	"lvl_4": {
+	{
 		"list": [
-			[GROCERY_ITEMS.SODA_2, 1],
-			[GROCERY_ITEMS.BOX_OF_CEREAL, 3],
-			[GROCERY_ITEMS.MEAT, 3],
-			[GROCERY_ITEMS.INSTANT_NOODLE, 3],
-			[GROCERY_ITEMS.COFFEE, 3],
-			[GROCERY_ITEMS.SUGAR, 2],
-			[GROCERY_ITEMS.TOILET_PAPER, 1],
-			[GROCERY_ITEMS.SNACKS_1, 1],
-			[GROCERY_ITEMS.SNACKS_2, 2],
+			["soda_02", 1],
+			["box_of_cereal", 3],
+			["meat", 3],
+			["instant_noodle", 3],
+			["coffee", 3],
+			["sugar", 2],
+			["toilet_paper", 1],
+			["snacks_01", 1],
+			["snacks_02", 2],
 		],
 		"promotion": 4,
 		"disturbance": 2
 	},
-	"lvl_5": {
+	{
 		"list": [
-			[GROCERY_ITEMS.SODA_1, 3],
-			[GROCERY_ITEMS.SODA_2, 3],
-			[GROCERY_ITEMS.MEAT, 5],
-			[GROCERY_ITEMS.COFFEE, 1],
-			[GROCERY_ITEMS.BOX_OF_CEREAL, 4],
-			[GROCERY_ITEMS.TOILET_PAPER, 3],
-			[GROCERY_ITEMS.SNACKS_1, 2],
-			[GROCERY_ITEMS.SNACKS_2, 3],
+			["soda_01", 3],
+			["soda_02", 3],
+			["meat", 5],
+			["coffee", 1],
+			["box_of_cereal", 4],
+			["toilet_paper", 3],
+			["snacks_01", 2],
+			["snacks_02", 3],
 		],
 		"promotion": 5,
 		"disturbance": 3
 	},
-	"lvl_6": {
+	{
 		"list": [],
 		"count-down": false,
 		"promotion": 0,
 		"disturbance": 4
 	}
-}
+]
+
 var current_level = 0
 
 func _ready() -> void:

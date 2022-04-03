@@ -24,7 +24,7 @@ func _ready() -> void:
 	intro.start("title", "test")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	player.has_control = false
-	supermarket.generate()
+	supermarket.generate(Data.LEVELS[Data.current_level])
 
 func _input(event: InputEvent) -> void:
 	match game_state:
