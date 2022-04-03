@@ -32,6 +32,7 @@ func _on_spawn_item(the_position: Vector3) -> void:
 
 func start_level() -> void:
 #	if not Data.DEBUG:
+	$Clock.running = true
 	$AnimationPlayer.play("pa-closing")
 
 func new_promotion() -> void:

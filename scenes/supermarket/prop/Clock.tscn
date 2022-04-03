@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/mesh/supermarket/prop/metal.material" type="Material" id=1]
+[ext_resource path="res://assets/model/supermarket/prop/ClockModel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/supermarket/prop/Clock.gd" type="Script" id=3]
+
+[sub_resource type="PrismMesh" id=1]
+material = ExtResource( 1 )
+size = Vector3( 0.3, 1.2, 0.1 )
+
+[node name="Clock" type="Spatial"]
+script = ExtResource( 3 )
+running = true
+
+[node name="clock" parent="." instance=ExtResource( 2 )]
+
+[node name="Pivot" type="Spatial" parent="."]
+transform = Transform( 0.599839, 0, 0, 0, 0.599825, 0, 0, 0, 0.599954, 0, 0, 0.01 )
+
+[node name="Arrow" type="MeshInstance" parent="Pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.421482, -0.185772 )
+mesh = SubResource( 1 )
+material/0 = null
