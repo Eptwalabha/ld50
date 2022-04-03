@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/ui/menu/menus/panels/SettingsVideo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sound/ui/select-previous.wav" type="AudioStream" id=2]
+[ext_resource path="res://scenes/ui/menu/core/panel/GameSubMenuWithOptions.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/ui/menu/menus/panels/SettingsMouseKeyboard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ui/menu/menus/panels/SettingsVolume.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ui/menu/menus/MenuSettings.gd" type="Script" id=6]
+
+[node name="MenuSettings" instance=ExtResource( 3 )]
+script = ExtResource( 6 )
+sub_menu_name = "settings_panel"
+
+[node name="Back" parent="Title" index="2"]
+align = 2
+
+[node name="HBoxContainer" parent="Title/Back" index="0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -82.5
+margin_top = -16.0
+margin_right = 82.5
+margin_bottom = 16.0
+size_flags_horizontal = 4
+
+[node name="TextureRect" parent="Title/Back/HBoxContainer" index="0"]
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Label" parent="Title/Back/HBoxContainer" index="1"]
+margin_top = 9.0
+margin_right = 113.0
+margin_bottom = 23.0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+valign = 0
+
+[node name="Scroll" parent="VBoxContainer/Panels/Margin" index="0"]
+follow_focus = true
+
+[node name="SettingsVideo" parent="VBoxContainer/Panels/Margin/Scroll/Panels" index="0" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_right = 742.0
+margin_bottom = 516.0
+focus_mode = 0
+panel_name = "sub_panel_settings_video"
+
+[node name="SettingsVolume" parent="VBoxContainer/Panels/Margin/Scroll/Panels" index="1" instance=ExtResource( 5 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_right = 742.0
+margin_bottom = 516.0
+focus_mode = 0
+panel_name = "sub_panel_settings_volume"
+
+[node name="SettingsMouseKeyboard" parent="VBoxContainer/Panels/Margin/Scroll/Panels" index="2" instance=ExtResource( 4 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_right = 742.0
+margin_bottom = 516.0
+focus_mode = 0
+panel_name = "sub_panel_settings_mouse_keyboard"
+
+[node name="PanelBack" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource( 2 )
+volume_db = -10.0
+
+[node name="PanelChange" parent="." index="5"]
+bus = "Master"

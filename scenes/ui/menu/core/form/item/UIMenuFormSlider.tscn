@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/shader/ui/UIOverlay.gdshader" type="Shader" id=1]
+[ext_resource path="res://scenes/ui/menu/core/form/item/UIMenuFormSlider.gd" type="Script" id=2]
+[ext_resource path="res://scenes/ui/menu/core/form/item/UIMenuFormItem.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/ui/menu/core/form/input/UIMenuSlider.tscn" type="PackedScene" id=4]
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/visible = true
+shader_param/blink_frequency = 0.5
+shader_param/min_alpha = 0.5
+shader_param/border_width = 3.0
+shader_param/border_fuzz = 3.0
+shader_param/border_color = Color( 1, 1, 1, 0.784314 )
+shader_param/inner_color = Color( 1, 1, 1, 0.227451 )
+shader_param/size = Vector2( 1024, 48 )
+
+[node name="UIMenuFormSlider" instance=ExtResource( 3 )]
+focus_mode = 2
+script = ExtResource( 2 )
+
+[node name="Label" parent="VBox/Input/Margin/Line" index="0"]
+margin_right = 680.0
+
+[node name="Slider" parent="VBox/Input/Margin/Line" index="1" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 684.0
+margin_right = 984.0
+margin_bottom = 32.0
+
+[node name="Overlay" parent="VBox/Input" index="1"]
+material = SubResource( 2 )
+
+[connection signal="value_changed" from="VBox/Input/Margin/Line/Slider" to="." method="_on_Slider_value_changed"]

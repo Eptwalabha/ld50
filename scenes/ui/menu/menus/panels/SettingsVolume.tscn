@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/ui/menu/core/panel/GameSubMenuPanel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/ui/menu/menus/panels/SettingsVolume.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/font_title.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scenes/ui/menu/core/form/item/custom/UIMenuFormSliderVolume.tscn" type="PackedScene" id=4]
+
+[node name="SettingsVolume" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+margin_right = 1024.0
+margin_bottom = 182.0
+
+[node name="Label" type="Label" parent="VBoxContainer" index="0"]
+margin_right = 1024.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 3 )
+text = "volume_settings"
+valign = 1
+
+[node name="Volumes" type="VBoxContainer" parent="VBoxContainer" index="1"]
+margin_top = 38.0
+margin_right = 1024.0
+margin_bottom = 182.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+
+[node name="Master" parent="VBoxContainer/Volumes" index="0" instance=ExtResource( 4 )]
+anchor_right = 0.0
+margin_right = 1024.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 48 )
+input_name = "bus_master"
+
+[node name="Music" parent="VBoxContainer/Volumes" index="1" instance=ExtResource( 4 )]
+anchor_right = 0.0
+margin_top = 48.0
+margin_right = 1024.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 0, 48 )
+input_name = "bus_music"
+bus_name = "Music"
+
+[node name="Sfx" parent="VBoxContainer/Volumes" index="2" instance=ExtResource( 4 )]
+anchor_right = 0.0
+margin_top = 96.0
+margin_right = 1024.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 0, 48 )
+input_name = "bus_sfx"
+bus_name = "Sfx"
+
+[connection signal="value_changed" from="VBoxContainer/Volumes/Master" to="." method="_on_Master_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Volumes/Music" to="." method="_on_Music_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Volumes/Sfx" to="." method="_on_Sfx_value_changed"]

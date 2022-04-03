@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/ui/menu/core/form/keymapping/KeyMapping.gd" type="Script" id=1]
+
+[node name="KeyMapping" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="."]
+margin_top = 293.0
+margin_right = 816.0
+margin_bottom = 307.0
+size_flags_horizontal = 3
+text = "key_"
+
+[node name="Key1" type="Button" parent="."]
+margin_left = 820.0
+margin_right = 920.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 100, 32 )
+text = "lol"
+
+[node name="Key2" type="Button" parent="."]
+margin_left = 924.0
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 100, 0 )
+text = "lol"
+
+[connection signal="pressed" from="Key1" to="." method="_on_Key1_pressed"]
+[connection signal="pressed" from="Key2" to="." method="_on_Key2_pressed"]

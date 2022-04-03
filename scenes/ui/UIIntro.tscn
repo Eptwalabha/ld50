@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/ui/UIIntro.gd" type="Script" id=1]
-[ext_resource path="res://assets/font/intro-title.tres" type="DynamicFont" id=2]
-[ext_resource path="res://assets/font/intro-text.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/fonts/intro-title.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/intro-text.tres" type="DynamicFont" id=3]
 
 [sub_resource type="Animation" id=2]
 length = 0.001

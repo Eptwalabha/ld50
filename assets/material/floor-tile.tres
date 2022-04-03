@@ -1,7 +1,7 @@
 [gd_resource type="SpatialMaterial" load_steps=3 format=2]
 
-[ext_resource path="res://assets/image/supermarket/floor-tile.svg" type="Texture" id=1]
-[ext_resource path="res://assets/image/supermarket/floor-tile-metal.svg" type="Texture" id=2]
+[ext_resource path="res://assets/images/supermarket/floor-tile.svg" type="Texture" id=1]
+[ext_resource path="res://assets/images/supermarket/floor-tile-metal.svg" type="Texture" id=2]
 
 [resource]
 params_diffuse_mode = 1

@@ -3,20 +3,23 @@ extends Node
 signal fov_changed(fov)
 signal crosshair_visibility_changed(visible)
 signal gamma_changed(gamma)
+signal load_config(config)
 
 const GameConfig = preload("res://save-system/GameConfig.gd")
 
 const DEBUG : bool = true
 const DEBUG_ENVIRONMENT : bool = false
 
-const GAMMA_MAX : float = 0.8
-const GAMMA_MIN : float = 2.0
 const FOV_MIN : int = 40
 const FOV_MAX : int = 140
+var PLAYER_FOV : int = 90
+
 const MOUSE_SENSITIVITY_MIN : float = 0.3
 const MOUSE_SENSITIVITY_MAX : float = 1.5
 var MOUSE_SENSITIVITY : float = 1.0
-var INVERT_Y : bool = false
+var MOUSE_INVERT_Y : bool = false
+
+var CROSSHAIR_VISIBLE : bool = true
 
 const BUS_VOLUME_MIN : float = -24.0
 const BUS_VOLUME_MAX : float = 7.0
@@ -79,10 +82,10 @@ var current_config : GameConfig
 
 func _ready() -> void:
 	current_config = load_config()
+	apply_config(current_config)
 
-func save_config(config: GameConfig) -> void:
-	config.version = ProjectSettings.get("application/config/version")
-	ResourceSaver.save("user://game-config.tres", config)
+func save_config(_config: GameConfig) -> void:
+	ResourceSaver.save("user://game-config.tres", get_config())
 
 func load_config() -> GameConfig:
 	var path : String = "user://game-config.tres"
@@ -90,35 +93,43 @@ func load_config() -> GameConfig:
 	if ResourceLoader.exists(path):
 		config = ResourceLoader.load(path)
 		config.update_config_version()
+	else:
+		config = get_config()
 	return config
 
-#	TranslationServer.set_locale(config.language)
-#	OS.window_fullscreen = config.full_screen
-#	set_screen_resolution(config.screen_resolution)
-#	for bus in ["Master", "Music", "Sfx"]:
-#		set_bus_volume(bus, config.volume[bus])
-#	Data.MOUSE_SENSITIVITY = config.mouse_sensitivity
-#	Data.INVERT_Y = config.mouse_y_inverted
-#	if !config.mapping.empty():
-#		Data.actions_mapping = config.mapping
-#		update_actions_mapping()
+func apply_config(config: GameConfig) -> void:
+	set_fullscreen(config.data['fullscreen'])
+	set_screen_resolution(config.data['screen_resolution'])
+	set_bus_volume('Master', config.data['bus_master'])
+	set_bus_volume('Music', config.data['bus_music'])
+	set_bus_volume('Sfx', config.data['bus_sfx'])
+	set_crosshair_visibility(config.data['crosshair_visible'])
+	set_player_fov(config.data['player_fov'])
+	set_vsync(config.data['vsync_on'])
+	set_language(config.data['language'])
+	set_mouse_sensitivity(config.data['mouse_sensitivity'])
+	set_mouse_invert_y(config.data['mouse_invert_y'])
 
-func update_actions_mapping() -> void:
-	for action in Data.actions_mapping:
-		for input in InputMap.get_action_list(action):
-			if input is InputEventKey or input is InputEventMouseButton:
-				InputMap.action_erase_event(action, input)
-		for input in Data.actions_mapping[action]:
-			match input:
-				[INPUT_TYPE.MOUSE, var button_index]:
-					var new_input = InputEventMouseButton.new()
-					new_input.button_index = button_index
-					InputMap.action_add_event(action, new_input)
-				[INPUT_TYPE.KEY, var scancode]:
-					var new_input = InputEventKey.new()
-					new_input.scancode = scancode
-					InputMap.action_add_event(action, new_input)
-				_: pass
+func get_config() -> GameConfig:
+	var config : GameConfig = GameConfig.new()
+	config.version = ProjectSettings.get("application/config/version")
+	config.data = {
+		'fullscreen': ProjectSettings.get("display/window/size/fullscreen"),
+		'screen_resolution': Vector2(ProjectSettings.get("display/window/size/width"), ProjectSettings.get("display/window/size/height")),
+		'bus_master': get_volume_percent('Master'),
+		'bus_music': get_volume_percent('Music'),
+		'bus_sfx': get_volume_percent('Sfx'),
+		'crosshair_visible': CROSSHAIR_VISIBLE,
+		'player_fov': PLAYER_FOV,
+		'vsync_on': OS.vsync_enabled,
+		'language': TranslationServer.get_locale(),
+		'mouse_sensitivity': MOUSE_SENSITIVITY,
+		'mouse_invert_y': MOUSE_INVERT_Y
+	}
+	return config
+
+func set_language(language: String) -> void:
+	TranslationServer.set_locale(language)
 
 func set_fullscreen(fullscreen: bool) -> void:
 	OS.window_fullscreen = fullscreen
@@ -154,16 +165,16 @@ func get_volume_percent(bus_name: String) -> float:
 func set_mouse_sensitivity(value: float) -> void:
 	MOUSE_SENSITIVITY = lerp(MOUSE_SENSITIVITY_MIN, MOUSE_SENSITIVITY_MAX, value)
 
-func set_crossair_visibility(visible: bool) -> void:
+func set_mouse_invert_y(inverted: bool) -> void:
+	MOUSE_INVERT_Y = inverted
+
+func set_crosshair_visibility(visible: bool) -> void:
+	CROSSHAIR_VISIBLE = visible
 	emit_signal("crosshair_visibility_changed", visible)
 
 func set_player_fov(value: float) -> void:
-	var new_fov = lerp(FOV_MIN, FOV_MAX, value)
-	emit_signal("fov_changed", new_fov)
-
-func set_gamma(value: float) -> void:
-	var new_gamma = lerp(GAMMA_MIN, GAMMA_MAX, value)
-	emit_signal("gamma_changed", new_gamma)
+	PLAYER_FOV = lerp(FOV_MIN, FOV_MAX, value)
+	emit_signal("fov_changed", PLAYER_FOV)
 
 func set_vsync(use_vsync: bool) -> void:
 	OS.vsync_enabled = use_vsync

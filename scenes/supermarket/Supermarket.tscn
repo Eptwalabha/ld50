@@ -206,11 +206,11 @@ material/0 = null
 
 [node name="Jingle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-bus = "pa"
+bus = "PA"
 
 [node name="Announce" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
-bus = "pa"
+bus = "PA"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "RESET"

@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/fonts/font_title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/images/buttons/controller/XboxOne_B.png" type="Texture" id=2]
+[ext_resource path="res://scenes/ui/menu/core/panel/GameSubMenu.gd" type="Script" id=4]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.382883, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.141176, 0.141176, 0.141176, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = SubResource( 2 )
+region_rect = Rect2( 0, 0, 2048, 1 )
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[node name="GameSubMenu" type="VBoxContainer" groups=["sub-menu-panel"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="HBoxContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+
+[node name="Control2" type="Control" parent="Title"]
+margin_right = 20.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="Control" type="Control" parent="Title"]
+margin_left = 24.0
+margin_right = 522.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+
+[node name="SubMenuTitle" type="Label" parent="Title/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "sub-menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="Title"]
+margin_left = 824.0
+margin_right = 1024.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 200, 32 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 10
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Title/Back"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Title/Back/HBoxContainer" groups=["controller-prompt"]]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 5
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Title/Back/HBoxContainer"]
+margin_left = 36.0
+margin_right = 200.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "back_to_main_menu"
+valign = 1
+
+[node name="HSeparator" type="HSeparator" parent="."]
+margin_top = 36.0
+margin_right = 1024.0
+margin_bottom = 40.0
+custom_styles/separator = SubResource( 4 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="pressed" from="Title/Back" to="." method="_on_Back_pressed"]

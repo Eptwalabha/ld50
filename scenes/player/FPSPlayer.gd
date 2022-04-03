@@ -59,7 +59,7 @@ func _input(event: InputEvent) -> void:
 		Data.using_controller = false
 		head.rotate_y(deg2rad(event.relative.x * -Data.MOUSE_SENSITIVITY * .5))
 
-		var y = -1 if Data.INVERT_Y else 1
+		var y = -1 if Data.MOUSE_INVERT_Y else 1
 		var change = event.relative.y * -Data.MOUSE_SENSITIVITY * .5 * y
 		if change + camera_angle < 90 and change + camera_angle > -90:
 			camera.rotate_x(deg2rad(change))
@@ -74,7 +74,7 @@ func input_controller() -> void:
 		head.rotate_y(deg2rad(y))
 		var x = - (Input.get_action_strength("look_down") - Input.get_action_strength("look_up")) \
 				* Data.MOUSE_SENSITIVITY * 10
-		if Data.INVERT_Y:
+		if Data.MOUSE_INVERT_Y:
 			x = -x
 		if x + camera_angle < 90 and x + camera_angle > -90:
 			camera.rotate_x(deg2rad(x))

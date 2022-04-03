@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/shader/ui/UIOverlay.gdshader" type="Shader" id=1]
+[ext_resource path="res://scenes/ui/menu/core/form/item/custom/UIMenuFormSliderVolume.gd" type="Script" id=2]
+[ext_resource path="res://scenes/ui/menu/core/form/item/UIMenuFormSlider.tscn" type="PackedScene" id=3]
+
+[sub_resource type="ShaderMaterial" id=7]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/visible = true
+shader_param/blink_frequency = 0.5
+shader_param/min_alpha = 0.5
+shader_param/border_width = 3.0
+shader_param/border_fuzz = 3.0
+shader_param/border_color = Color( 1, 1, 1, 0.784314 )
+shader_param/inner_color = Color( 1, 1, 1, 0.227451 )
+shader_param/size = Vector2( 1024, 48 )
+
+[node name="UIMenuFormSliderVolume" instance=ExtResource( 3 )]
+script = ExtResource( 2 )
+
+[node name="Overlay" parent="VBox/Input" index="1"]
+material = SubResource( 7 )
+
+[node name="Container" type="MarginContainer" parent="." index="1"]
+visible = false
+margin_right = 1024.0
+margin_bottom = 42.0
+mouse_filter = 2
+custom_constants/margin_right = 20
+custom_constants/margin_top = 5
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 5
+
+[node name="Line" type="GridContainer" parent="Container" index="0"]
+visible = false
+margin_left = 20.0
+margin_top = 5.0
+margin_right = 1004.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 0
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

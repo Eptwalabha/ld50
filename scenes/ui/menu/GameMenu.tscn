@@ -1,0 +1,157 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/sound/ui/menu-change.mp3" type="AudioStream" id=1]
+[ext_resource path="res://scenes/ui/menu/menus/MenuCredits.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/ui/menu/menus/MenuSettings.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/ui/menu/GameMenu.gd" type="Script" id=4]
+[ext_resource path="res://scenes/ui/menu/core/form/GameMenuButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/fonts/font_title.tres" type="DynamicFont" id=6]
+[ext_resource path="res://scenes/ui/menu/core/panel/GameMenuSelection.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.382883, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.141176, 0.141176, 0.141176, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = SubResource( 4 )
+region_rect = Rect2( 0, 0, 2048, 1 )
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[node name="GameMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.227451, 0.215686, 0.215686, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 580.0
+
+[node name="Label" type="Label" parent="MarginContainer/MainMenu"]
+margin_right = 984.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 6 )
+text = "Pause"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MainMenu"]
+margin_top = 38.0
+margin_right = 984.0
+margin_bottom = 42.0
+custom_styles/separator = SubResource( 3 )
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/MainMenu"]
+margin_top = 46.0
+margin_right = 984.0
+margin_bottom = 560.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Menu" type="MarginContainer" parent="MarginContainer/MainMenu/VBoxContainer"]
+margin_right = 250.0
+margin_bottom = 514.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+custom_constants/margin_top = 20
+
+[node name="Scroll" type="ScrollContainer" parent="MarginContainer/MainMenu/VBoxContainer/Menu"]
+margin_top = 20.0
+margin_right = 250.0
+margin_bottom = 514.0
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="Selection" parent="MarginContainer/MainMenu/VBoxContainer/Menu/Scroll" instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 250.0
+margin_bottom = 494.0
+highlight = false
+
+[node name="Resume" parent="MarginContainer/MainMenu/VBoxContainer/Menu/Scroll/Selection" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 250.0
+margin_bottom = 48.0
+button_name = "resume_game"
+
+[node name="Settings" parent="MarginContainer/MainMenu/VBoxContainer/Menu/Scroll/Selection" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 48.0
+margin_right = 250.0
+margin_bottom = 96.0
+button_name = "settings_panel"
+
+[node name="Credits" parent="MarginContainer/MainMenu/VBoxContainer/Menu/Scroll/Selection" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 96.0
+margin_right = 250.0
+margin_bottom = 144.0
+button_name = "credits_panel"
+
+[node name="Quit" parent="MarginContainer/MainMenu/VBoxContainer/Menu/Scroll/Selection" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 446.0
+margin_right = 250.0
+margin_bottom = 494.0
+size_flags_vertical = 10
+button_name = "quit_game"
+
+[node name="Eptwalabha" type="Label" parent="MarginContainer/MainMenu/VBoxContainer"]
+margin_left = 254.0
+margin_top = 466.0
+margin_right = 984.0
+margin_bottom = 514.0
+rect_min_size = Vector2( 0, 48 )
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "ldjam 50 @eptwalabha - 2022"
+align = 2
+valign = 1
+
+[node name="SubMenus" type="Control" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 580.0
+
+[node name="Credits" parent="MarginContainer/SubMenus" instance=ExtResource( 2 )]
+visible = false
+
+[node name="Settings" parent="MarginContainer/SubMenus" instance=ExtResource( 3 )]
+visible = false
+
+[node name="PanelChange" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+
+[connection signal="button_selected" from="MarginContainer/MainMenu/VBoxContainer/Menu/Scroll/Selection" to="." method="_on_Selection_button_selected"]
