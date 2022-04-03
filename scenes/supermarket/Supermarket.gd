@@ -30,9 +30,10 @@ func _on_spawn_item(the_position: Vector3) -> void:
 	$Goods.add_child(good)
 	good.global_transform.origin = the_position
 
+
 func start_level() -> void:
 #	if not Data.DEBUG:
-	$Clock.running = true
+	$Clock.reset_clock(false)
 	$AnimationPlayer.play("pa-closing")
 
 func new_promotion() -> void:
