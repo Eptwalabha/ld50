@@ -78,6 +78,100 @@ const MIN_DB : float = -20.0
 
 var current_config : GameConfig
 
+enum GROCERY_ITEMS {
+	CAN_OF_SOUP,
+	BOX_OF_CEREAL,
+	MEAT,
+	SODA_1,
+	SODA_2,
+	COFEE,
+	TOILETTE_PAPER,
+	SNACK_1,
+	SNACK_2,
+	INSTANT_NOODLE,
+	FRUIT,
+	VEGETABLE,
+	SUGAR
+}
+
+const LEVELS = {
+	"lvl_1": {
+		"list": [
+			[GROCERY_ITEMS.FRUIT, 2],
+			[GROCERY_ITEMS.VEGETABLE, 2],
+			[GROCERY_ITEMS.MEAT, 1],
+			[GROCERY_ITEMS.CAN_OF_SOUP, 1],
+			[GROCERY_ITEMS.TOILETTE_PAPER, 1]
+		],
+		"promotion": 1,
+		"disturbance": 0
+	},
+	"lvl_2": {
+		"list": [
+			[GROCERY_ITEMS.FRUIT, 2],
+			[GROCERY_ITEMS.MEAT, 2],
+			[GROCERY_ITEMS.BOX_OF_CEREAL, 2],
+			[GROCERY_ITEMS.COFEE, 1],
+			[GROCERY_ITEMS.INSTANT_NOODLE, 1],
+			[GROCERY_ITEMS.TOILETTE_PAPER, 1],
+			[GROCERY_ITEMS.SNACK_1, 1],
+		],
+		"promotion": 2,
+		"disturbance": 0
+	},
+	"lvl_3": {
+		"list": [
+			[GROCERY_ITEMS.SODA_1, 1],
+			[GROCERY_ITEMS.BOX_OF_CEREAL, 3],
+			[GROCERY_ITEMS.VEGETABLE, 1],
+			[GROCERY_ITEMS.MEAT, 2],
+			[GROCERY_ITEMS.CAN_OF_SOUP, 1],
+			[GROCERY_ITEMS.COFEE, 2],
+			[GROCERY_ITEMS.SUGAR, 1],
+			[GROCERY_ITEMS.TOILETTE_PAPER, 1],
+			[GROCERY_ITEMS.SNACK_2, 1],
+		],
+		"promotion": 3,
+		"disturbance": 1
+	},
+	"lvl_4": {
+		"list": [
+			[GROCERY_ITEMS.SODA_2, 1],
+			[GROCERY_ITEMS.BOX_OF_CEREAL, 3],
+			[GROCERY_ITEMS.MEAT, 3],
+			[GROCERY_ITEMS.INSTANT_NOODLE, 3],
+			[GROCERY_ITEMS.COFEE, 3],
+			[GROCERY_ITEMS.SUGAR, 2],
+			[GROCERY_ITEMS.TOILETTE_PAPER, 1],
+			[GROCERY_ITEMS.SNACK_1, 1],
+			[GROCERY_ITEMS.SNACK_2, 2],
+		],
+		"promotion": 4,
+		"disturbance": 2
+	},
+	"lvl_5": {
+		"list": [
+			[GROCERY_ITEMS.SODA_1, 3],
+			[GROCERY_ITEMS.SODA_2, 3],
+			[GROCERY_ITEMS.MEAT, 5],
+			[GROCERY_ITEMS.COFEE, 1],
+			[GROCERY_ITEMS.BOX_OF_CEREAL, 4],
+			[GROCERY_ITEMS.TOILETTE_PAPER, 3],
+			[GROCERY_ITEMS.SNACK_1, 2],
+			[GROCERY_ITEMS.SNACK_2, 3],
+		],
+		"promotion": 5,
+		"disturbance": 3
+	},
+	"lvl_6": {
+		"list": [],
+		"count-down": false,
+		"promotion": 0,
+		"disturbance": 4
+	}
+}
+var current_level = 0
+
 func _ready() -> void:
 	current_config = load_config()
 	apply_config(current_config)
