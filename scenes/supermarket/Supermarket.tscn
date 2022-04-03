@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/sound/supermarket/closing-announcement.mp3" type="AudioStream" id=1]
 [ext_resource path="res://scenes/supermarket/shelves/variation/ShelveRegular4.tscn" type="PackedScene" id=2]
@@ -11,6 +11,16 @@
 [ext_resource path="res://scenes/supermarket/item/grocery/CanOfSoup.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/supermarket/item/grocery/BoxOfCereal.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/supermarket/item/grocery/ToiletPaper.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/supermarket/item/grocery/Coffee.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/supermarket/item/grocery/Meat.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/supermarket/item/grocery/Soda02.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/supermarket/item/grocery/Snacks02.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/supermarket/item/grocery/Soda01.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/supermarket/item/grocery/Snacks01.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/supermarket/item/grocery/InstantNoodle.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/supermarket/item/grocery/Fruits.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/supermarket/item/grocery/Vegetables.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/supermarket/item/grocery/Sugar.tscn" type="PackedScene" id=21]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 50, 0.5, 50 )
@@ -265,14 +275,44 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.94483
 
 [node name="Goods" type="Spatial" parent="."]
 
-[node name="CanOfSoup" parent="Goods" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74133, 1.65294, 1.73057 )
-
-[node name="CanOfSoup2" parent="Goods" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74133, 1.65294, 2.32012 )
-
 [node name="ToiletPaper" parent="Goods" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74133, 1.65294, 2.88968 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.61907, 0, 2.40675 )
+
+[node name="BoxOfCereal" parent="Goods" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.56243, 3.69549e-05, 1.82483 )
+
+[node name="CanOfSoup" parent="Goods" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.56243, 3.69549e-05, 1.40636 )
+
+[node name="Sugar" parent="Goods" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.00527, 0, 0.881866 )
+
+[node name="Coffee" parent="Goods" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.56243, 3.69549e-05, 0.950151 )
+
+[node name="Meat" parent="Goods" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.56243, 3.69549e-05, 0.625684 )
+
+[node name="Snacks01" parent="Goods" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.56243, 3.69549e-05, 0.262555 )
+
+[node name="Snacks02" parent="Goods" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.56243, 3.69549e-05, -0.233589 )
+
+[node name="InstantNoodle" parent="Goods" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.56243, 3.69549e-05, -0.810056 )
+
+[node name="Fruits" parent="Goods" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.18962, 3.69549e-05, -1.19424 )
+
+[node name="Vegetables" parent="Goods" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.18962, 3.69549e-05, -0.720958 )
+
+[node name="Soda01" parent="Goods" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.56243, 3.69549e-05, -1.60275 )
+
+[node name="Soda02" parent="Goods" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.56243, 3.69549e-05, -2.23154 )
 
 [node name="Clock" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.15311, 8.67001 )

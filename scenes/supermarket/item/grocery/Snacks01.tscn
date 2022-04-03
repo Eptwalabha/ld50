@@ -1,29 +1,29 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/supermarket/item/PickableItem.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/images/groceries/soda_01.svg" type="Texture" id=2]
+[ext_resource path="res://assets/images/groceries/snacks_01.svg" type="Texture" id=2]
 
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 0.117748, 0.285559, 0.116696 )
+extents = Vector3( 0.14053, 0.196755, 0.10267 )
 
 [sub_resource type="QuadMesh" id=1]
-size = Vector2( 0.3, 0.6 )
+size = Vector2( 0.3, 0.4 )
 
 [sub_resource type="SpatialMaterial" id=4]
 flags_transparent = true
 params_billboard_mode = 2
 albedo_texture = ExtResource( 2 )
 
-[node name="Soda01" instance=ExtResource( 1 )]
-type = "soda_01"
+[node name="Snacks01" instance=ExtResource( 1 )]
+type = "snacks_01"
 
 [node name="InteractTrigger" parent="." index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.290123, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.207614, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="InteractTrigger" index="2"]
 shape = SubResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.288203, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.211012, 0 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 4 )
