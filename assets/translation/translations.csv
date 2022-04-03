@@ -50,16 +50,12 @@ Ce projet ne contient que quelques-un des icônes. Le pack complet et disponible
 "credit_other_assets_title"	"Other assets"	"Autres ressources"
 "credit_other_assets_license"	"MIT"	"MIT"
 "credit_other_assets_description"	"I created all the other assets you'll find in this project. This means:
-- The crappy music playing in the background near the merchant
-- The image of merchant
-- The images used to texture the test level
+- All images used to texture the supermarket
 - All 3D models
 - All sounds (mostly made with https://sfxr.me)
 
 Feel free to do whatever you want with these and this project."	"J'ai créé toutes les autres ressources de ce projet. À savoir:
-- La musique naze qui joue près du marchand
-- La texture du marchand
-- Les images qui servent à texturer le niveau test
+- Les images qui servent à texturer le supermarché
 - Tous les modèles 3D
 - Tous les sons (principalement générés sur ce site https://sfxr.me)
 
@@ -96,7 +92,6 @@ N'hésitez pas à faire ce que vous voulez avec ces ressources et le projet lui-
 "label_bus_master"	"Master"	"Général"
 "label_bus_music"	"Musics"	"Musiques"
 "label_bus_sfx"	"Effects"	"Effets"
-"gamma_hint"	"Increase or lower the gamma value\nGodot's robot must be barely visible"	"Augmenter ou diminuer le gamma\nle robot de Godot doit être à peine visible"
 "move_forward"	"Move forward"	"Avant"
 "move_backward"	"Move back"	"Arrière"
 "move_left"	"Straf right"	"Pas à GAUCHE"
@@ -111,3 +106,17 @@ N'hésitez pas à faire ce que vous voulez avec ces ressources et le projet lui-
 "label_keyboard_mapping"	"Keyboard Mapping"	"Disposition du clavier"
 "Space"	"SPACE"	"ESPACE"
 "press_action_to_start"	"Press ""Use"" to start"	"""Utiliser"" pour démarrer"
+"grocery_list"	"Grocery list"	"Liste de course"
+"can_of_soup"	"Can of soup"	"Soupe en boîte"
+"box_of_cereal"	"Cereal"	"Céréal"
+"meat"	"Meat"	"Viande"
+"soda_01"	"Soda"	"Soda"
+"soda_02"	"Soda"	"Soda"
+"toilet_paper"	"Toilet paper"	"PQ"
+"coffee"	"Coffee"	"Café"
+"snacks_01"	"Snacks"	"Snacks"
+"snacks_02"	"Snacks"	"Snacks"
+"instant_noodle"	"Instant Noodle"	"Nouilles"
+"fruits"	"Fruits"	"Fruits"
+"vegetables"	"Vegetables"	"Légumes"
+"sugar"	"Sugar"	"Sucre"

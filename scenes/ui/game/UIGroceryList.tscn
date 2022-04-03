@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/font_grocery_title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/ui/game/UIGroceryList.gd" type="Script" id=2]
+[ext_resource path="res://scenes/ui/game/GroceryItemLine.tscn" type="PackedScene" id=3]
+
+[node name="UIGroceryList" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 30
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 30
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 30.0
+margin_right = 1004.0
+margin_bottom = 570.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 984.0
+margin_bottom = 57.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "grocery_list"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 77.0
+margin_right = 984.0
+margin_bottom = 127.0
+custom_constants/separation = 10
+
+[node name="GroceryItemLine" parent="VBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_right = 984.0
+margin_bottom = 50.0

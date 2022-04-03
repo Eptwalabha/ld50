@@ -3,28 +3,30 @@ extends Spatial
 onready var player : FPSPlayer = $FPSPlayer
 onready var supermarket : Supermarket = $Supermarket
 onready var intro : UIIntro = $UIIntro
-onready var promotion_timer : Timer = $Promotion
 onready var game_menu : GameMenu = $GameMenu
+onready var grocery_list : GroceryList = $FPSPlayer/Head/Camera/Hand/GroceryList
 
 var current_item : InteractTrigger
 
-var player_credits : int = 0
-var player_daily_credits : int = 100
-var player_objective : int = 0
+var player_can_checkout := false
 
 enum STATE {
 	INTRO,
 	PLAYING,
-	MENU
+	MENU,
+	END_LEVEL
 }
 
 var game_state : int = STATE.INTRO
 
 func _ready() -> void:
-	intro.start("title", "test")
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	var level = Data.LEVELS[Data.current_level]
+	intro.start(Data.current_level)
 	player.has_control = false
-	supermarket.generate(Data.LEVELS[Data.current_level])
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	var list = supermarket.generate(level)
+	grocery_list.set_list(list)
+	player_can_checkout
 
 func _input(event: InputEvent) -> void:
 	match game_state:
@@ -39,9 +41,20 @@ func _input_playing(event: InputEvent) -> void:
 	elif event.is_action_pressed("context_action"):
 		if current_item != null:
 			player.interact_with()
+			var parent = current_item.get_parent()
+			if parent is PickableItem and parent.is_grocery:
+				grocery_list.item_picked(parent.type)
+			current_item.interact_with(player)
 			current_item = null
 	if event.is_action_pressed("pause_game"):
 		pause_game()
+
+func next_level() -> void:
+	supermarket.stop_level()
+	game_state = STATE.END_LEVEL
+	player.has_control = false
+	Data.current_level += 1
+	intro.next_level()
 
 func pause_game() -> void:
 	get_tree().paused = true
@@ -79,7 +92,6 @@ func _on_FPSPlayer_interact_hovered(item) -> void:
 func _on_FPSPlayer_interact_exited(item) -> void:
 	_remove_current_item(item)
 
-
 func _on_Supermarket_announce_dialog_ended() -> void:
 	$Dialog.hide()
 
@@ -88,19 +100,19 @@ func _on_Supermarket_announce_dialog_started(key) -> void:
 
 func _on_UIIntro_faded_out() -> void:
 	supermarket.start_level()
-	promotion_timer.start()
+	grocery_list.start_level()
 	game_state = STATE.PLAYING
 	player.has_control = true
-
-func _on_Promotion_timeout() -> void:
-	generate_new_promotion()
-
-func generate_new_promotion() -> void:
-#	var item_type = random_item()
-	supermarket.new_promotion()
 
 func _on_GameMenu_resume_game_requested() -> void:
 	resume_game()
 
 func _on_GameMenu_quit_game_requested() -> void:
 	get_tree().quit()
+
+func _on_GroceryList_all_items_picked_up() -> void:
+	player_can_checkout = true
+
+func _on_Supermarket_player_checkout() -> void:
+	if player_can_checkout:
+		next_level()

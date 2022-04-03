@@ -64,6 +64,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/ui/menu/core/panel/GameSubMenuWithOptions.gd"
 }, {
+"base": "HBoxContainer",
+"class": "GroceryItemLine",
+"language": "GDScript",
+"path": "res://scenes/ui/game/GroceryItemLine.gd"
+}, {
+"base": "Spatial",
+"class": "GroceryList",
+"language": "GDScript",
+"path": "res://scenes/GroceryList.gd"
+}, {
 "base": "Area",
 "class": "InteractTrigger",
 "language": "GDScript",
@@ -125,6 +135,11 @@ _global_script_classes=[ {
 "path": "res://scenes/supermarket/Supermarket.gd"
 }, {
 "base": "Control",
+"class": "UIGroceryList",
+"language": "GDScript",
+"path": "res://scenes/ui/game/UIGroceryList.gd"
+}, {
+"base": "Control",
 "class": "UIIntro",
 "language": "GDScript",
 "path": "res://scenes/ui/UIIntro.gd"
@@ -181,6 +196,8 @@ _global_script_class_icons={
 "GameSubMenu": "",
 "GameSubMenuPanel": "",
 "GameSubMenuWithOptions": "",
+"GroceryItemLine": "",
+"GroceryList": "",
 "InteractTrigger": "",
 "ItemPosition": "",
 "KeyMapping": "",
@@ -193,6 +210,7 @@ _global_script_class_icons={
 "SettingsVolume": "",
 "Shelve": "",
 "Supermarket": "",
+"UIGroceryList": "",
 "UIIntro": "",
 "UIMenuBaseSelect": "",
 "UIMenuFormItem": "",

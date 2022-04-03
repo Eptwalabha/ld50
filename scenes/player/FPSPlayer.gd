@@ -141,7 +141,6 @@ func update_physic_state(delta: float) -> void:
 
 func interact_with() -> void:
 	if _current_interact is InteractTrigger:
-		_current_interact.interact_with(self)
 		_current_interact = null
 
 func _on_Ray_area_entered(area) -> void:

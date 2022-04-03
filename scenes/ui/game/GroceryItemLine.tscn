@@ -1,0 +1,73 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://scenes/ui/game/GroceryItemLine.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/groceries/meat.svg" type="Texture" id=2]
+[ext_resource path="res://assets/images/groceries/box_of_cereal.svg" type="Texture" id=3]
+[ext_resource path="res://assets/images/groceries/can_of_soup.svg" type="Texture" id=4]
+[ext_resource path="res://assets/images/groceries/soda_02.svg" type="Texture" id=5]
+[ext_resource path="res://assets/images/groceries/soda_01.svg" type="Texture" id=6]
+[ext_resource path="res://assets/images/groceries/toilet_paper.svg" type="Texture" id=7]
+[ext_resource path="res://assets/images/groceries/coffee.svg" type="Texture" id=8]
+[ext_resource path="res://assets/images/groceries/snacks_02.svg" type="Texture" id=9]
+[ext_resource path="res://assets/images/groceries/snacks_01.svg" type="Texture" id=10]
+[ext_resource path="res://assets/images/groceries/instant_noodle.svg" type="Texture" id=11]
+[ext_resource path="res://assets/images/groceries/fruits.svg" type="Texture" id=12]
+[ext_resource path="res://assets/images/groceries/vegetables.svg" type="Texture" id=13]
+[ext_resource path="res://assets/images/groceries/sugar.svg" type="Texture" id=14]
+[ext_resource path="res://assets/fonts/font_grocery.tres" type="DynamicFont" id=15]
+[ext_resource path="res://assets/images/groceries/strike.svg" type="Texture" id=16]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="GroceryItemLine" type="HBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 14.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item" type="CenterContainer" parent="."]
+margin_right = 70.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 70, 50 )
+
+[node name="Control" type="Control" parent="Item"]
+margin_left = 35.0
+margin_top = 25.0
+margin_right = 35.0
+margin_bottom = 25.0
+
+[node name="Texture" type="AnimatedSprite" parent="Item/Control"]
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 2 )
+
+[node name="ItemName" type="Label" parent="."]
+margin_left = 74.0
+margin_top = 5.0
+margin_right = 966.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 15 )
+text = "aaa"
+
+[node name="Quantity" type="Label" parent="."]
+margin_left = 970.0
+margin_top = 5.0
+margin_right = 1024.0
+margin_bottom = 45.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 15 )
+text = "aaa"
+
+[node name="Strike" type="Sprite" parent="."]
+scale = Vector2( 4.21, 4 )
+texture = ExtResource( 16 )
+centered = false

@@ -11,6 +11,7 @@ size = Vector2( 0.3, 0.3 )
 
 [node name="CanOfSoup" instance=ExtResource( 1 )]
 type = "can_of_soup"
+is_grocery = true
 
 [node name="InteractTrigger" parent="." index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.129525, 0 )

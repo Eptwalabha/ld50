@@ -1,11 +1,15 @@
 class_name Supermarket extends Spatial
 
 signal supermarket_generated
+signal player_checkout
+
 signal announce_dialog_started(key)
 signal announce_dialog_ended
 
 onready var shelves = $Shelves
 onready var goods = $Goods
+onready var promotion_timer: Timer = $Promotion
+onready var anim : AnimationPlayer = $AnimationPlayer
 
 const items = {
 	"can_of_soup": preload("res://scenes/supermarket/item/grocery/CanOfSoup.tscn"),
@@ -23,15 +27,18 @@ const items = {
 	"sugar": preload("res://scenes/supermarket/item/grocery/Sugar.tscn")
 }
 
+var promotion_delay : float = 60.0
+
 func _ready() -> void:
 	pass
 
-func generate(level: Dictionary) -> void:
+func generate(level: Dictionary) -> Array:
 	_reset_supermarket()
 	_generate_supermarket()
-	_generate_goods(level.list)
+	var new_list = _generate_goods(level.list)
 	_generate_goods(_random_items_list(level))
 	emit_signal("supermarket_generated")
+	return new_list
 
 func _random_items_list(level: Dictionary) -> Array:
 	var amount = 40
@@ -93,12 +100,12 @@ func _get_available_positions(item_type: String) -> Array:
 	return available_positions
 
 func start_level() -> void:
-#	if not Data.DEBUG:
 	$Clock.reset_clock(false)
-	$AnimationPlayer.play("pa-closing")
+	anim.play("pa-closing")
+	promotion_timer.start(promotion_delay)
 
 func new_promotion() -> void:
-	$AnimationPlayer.play("pa-new_promotion")
+	anim.play("pa-new_promotion")
 
 func announce_dialog(key: String) -> void:
 	emit_signal("announce_dialog_started", key)
@@ -107,4 +114,11 @@ func announce_dialog_end() -> void:
 	emit_signal("announce_dialog_ended")
 
 func _on_Cashier_player_checkout() -> void:
-	print("checkout")
+	emit_signal("player_checkout")
+
+func _on_Promotion_timeout() -> void:
+	new_promotion()
+
+func stop_level() -> void:
+	promotion_timer.stop()
+	$Clock.reset_clock(true)

@@ -225,6 +225,7 @@ anims/pa-new_promotion = SubResource( 5 )
 
 [node name="S1" parent="Shelves" instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.5, 0, 2 )
+items_strs = "can_of_soup,toilet_paper,meat"
 
 [node name="S8" parent="Shelves" instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5, 0, 2 )
@@ -365,6 +366,8 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -17.794
 [node name="Cashier8" parent="." instance=ExtResource( 22 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.794, 0, 6.97848 )
 
+[node name="Promotion" type="Timer" parent="."]
+
 [connection signal="player_checkout" from="Cashier" to="." method="_on_Cashier_player_checkout"]
 [connection signal="player_checkout" from="Cashier2" to="." method="_on_Cashier_player_checkout"]
 [connection signal="player_checkout" from="Cashier3" to="." method="_on_Cashier_player_checkout"]
@@ -373,3 +376,4 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.794
 [connection signal="player_checkout" from="Cashier6" to="." method="_on_Cashier_player_checkout"]
 [connection signal="player_checkout" from="Cashier7" to="." method="_on_Cashier_player_checkout"]
 [connection signal="player_checkout" from="Cashier8" to="." method="_on_Cashier_player_checkout"]
+[connection signal="timeout" from="Promotion" to="." method="_on_Promotion_timeout"]

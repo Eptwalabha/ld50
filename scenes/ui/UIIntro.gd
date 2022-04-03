@@ -1,22 +1,31 @@
 class_name UIIntro extends Control
 
 signal faded_out
+signal next_level_requested
+
+onready var anim : AnimationPlayer = $AnimationPlayer
 
 var ready_to_fade_out : bool = false
 
 func _ready() -> void:
 	pass
 
-func start(key_title, key_content) -> void:
+func start(level_id: int) -> void:
 	show()
 	if Data.DEBUG:
 		ready_to_fade_out = true
 	else:
 		$TextContainer/Action.hide()
 		ready_to_fade_out = false
-		$AnimationPlayer.play("intro-in")
-		$TextContainer/Title.text = key_title
-		$TextContainer/Text.text = key_content
+		anim.play("intro-in")
+		$TextContainer/Title.text = "lvl_title_%d" % level_id
+		$TextContainer/Text.text = "lvl_quote_%d" % level_id
+
+func next_level() -> void:
+	anim.play("outro-start")
+
+func outro_ended() -> void:
+	emit_signal("next_level_requested")
 
 func _input(event: InputEvent) -> void:
 	if ready_to_fade_out:
@@ -26,7 +35,7 @@ func _input(event: InputEvent) -> void:
 				emit_signal("faded_out")
 				hide()
 			else:
-				$AnimationPlayer.play("intro-out")
+				anim.play("intro-out")
 
 func level_ready() -> void:
 	$TextContainer/Action.show()
