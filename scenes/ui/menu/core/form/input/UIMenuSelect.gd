@@ -13,6 +13,11 @@ func _ready() -> void:
 	else:
 		queue_free()
 
+func set_value(value) -> void:
+	for i in range(len(choices)):
+		if choices[i] == value:
+			set_choice(i)
+
 func set_choice(value) -> void:
 	current_choice = int(clamp(value, 0.0, len(choices)))
 	label.text = choices[current_choice]

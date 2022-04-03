@@ -98,23 +98,23 @@ func load_config() -> GameConfig:
 	return config
 
 func apply_config(config: GameConfig) -> void:
-	set_fullscreen(config.data['fullscreen'])
+	OS.window_fullscreen = config.data['fullscreen']
 	set_screen_resolution(config.data['screen_resolution'])
 	set_bus_volume('Master', config.data['bus_master'])
 	set_bus_volume('Music', config.data['bus_music'])
 	set_bus_volume('Sfx', config.data['bus_sfx'])
-	set_crosshair_visibility(config.data['crosshair_visible'])
-	set_player_fov(config.data['player_fov'])
+	CROSSHAIR_VISIBLE = config.data['crosshair_visible']
+	PLAYER_FOV = config.data['player_fov']
 	set_vsync(config.data['vsync_on'])
 	set_language(config.data['language'])
-	set_mouse_sensitivity(config.data['mouse_sensitivity'])
-	set_mouse_invert_y(config.data['mouse_invert_y'])
+	MOUSE_SENSITIVITY = config.data['mouse_sensitivity']
+	MOUSE_INVERT_Y = config.data['mouse_invert_y']
 
 func get_config() -> GameConfig:
 	var config : GameConfig = GameConfig.new()
 	config.version = ProjectSettings.get("application/config/version")
 	config.data = {
-		'fullscreen': ProjectSettings.get("display/window/size/fullscreen"),
+		'fullscreen': OS.window_fullscreen,
 		'screen_resolution': Vector2(ProjectSettings.get("display/window/size/width"), ProjectSettings.get("display/window/size/height")),
 		'bus_master': get_volume_percent('Master'),
 		'bus_music': get_volume_percent('Music'),
@@ -165,16 +165,31 @@ func get_volume_percent(bus_name: String) -> float:
 func set_mouse_sensitivity(value: float) -> void:
 	MOUSE_SENSITIVITY = lerp(MOUSE_SENSITIVITY_MIN, MOUSE_SENSITIVITY_MAX, value)
 
+func get_mouse_sensitivity_value() -> float:
+	return inverse_lerp(MOUSE_SENSITIVITY_MIN, MOUSE_SENSITIVITY_MAX, MOUSE_SENSITIVITY)
+
 func set_mouse_invert_y(inverted: bool) -> void:
 	MOUSE_INVERT_Y = inverted
+
+func get_mouse_invert_y_value() -> String:
+	return "true" if MOUSE_INVERT_Y else "false"
 
 func set_crosshair_visibility(visible: bool) -> void:
 	CROSSHAIR_VISIBLE = visible
 	emit_signal("crosshair_visibility_changed", visible)
 
+func get_crosshair_visibility_value() -> String:
+	return "true" if CROSSHAIR_VISIBLE else "false"
+
 func set_player_fov(value: float) -> void:
 	PLAYER_FOV = lerp(FOV_MIN, FOV_MAX, value)
 	emit_signal("fov_changed", PLAYER_FOV)
 
+func get_player_fov_value() -> float:
+	return inverse_lerp(FOV_MIN, FOV_MAX, PLAYER_FOV)
+
 func set_vsync(use_vsync: bool) -> void:
 	OS.vsync_enabled = use_vsync
+
+func get_vsync_value() -> String:
+	return "true" if OS.vsync_enabled else "false"

@@ -4,6 +4,12 @@ extends GameSubMenuPanel
 onready var resolutions : UIMenuFormSelect = $Video/Items/Resolutions
 
 func _ready() -> void:
+	var conf = Data.current_config.data
+	$Game/Items/Language.set_value(conf['language'])
+	$Game/Items/Crosshair.set_value("true" if conf['crosshair_visible'] else "false")
+	$Video/Items/Fullscreen.set_value("true" if conf['fullscreen'] else "false")
+	$Video/Items/FoV.set_value(Data.get_player_fov_value())
+	$Video/Items/Vsync.set_value(Data.get_vsync_value())
 	set_resolutions("16:9")
 
 func set_resolutions(ratio: String) -> void:

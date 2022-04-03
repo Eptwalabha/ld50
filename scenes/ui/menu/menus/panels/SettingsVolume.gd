@@ -1,6 +1,10 @@
 class_name SettingsVolume
 extends GameSubMenuPanel
 
+func _ready() -> void:
+	$VBoxContainer/Volumes/Master.set_value(Data.get_volume_percent('Master'))
+	$VBoxContainer/Volumes/Music.set_value(Data.get_volume_percent('Music'))
+	$VBoxContainer/Volumes/Sfx.set_value(Data.get_volume_percent('Sfx'))
 
 func _on_Master_value_changed(value) -> void:
 	Data.set_bus_volume("Master", value)

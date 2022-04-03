@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/ui/menu/core/form/keymapping/KeyRemapper.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/ui/menu/menus/panels/SettingsMouseKeyboard.gd" type="Script" id=6]
 
-[node name="SettingsVideo" instance=ExtResource( 1 )]
+[node name="SettingsMouseKeyboard" instance=ExtResource( 1 )]
 script = ExtResource( 6 )
 
 [node name="Mouse" type="VBoxContainer" parent="." index="0"]

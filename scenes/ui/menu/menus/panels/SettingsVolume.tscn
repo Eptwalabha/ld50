@@ -26,15 +26,13 @@ margin_bottom = 182.0
 size_flags_horizontal = 3
 custom_constants/separation = 0
 
-[node name="Master" parent="VBoxContainer/Volumes" index="0" instance=ExtResource( 4 )]
-anchor_right = 0.0
+[node name="Master" parent="VBoxContainer/Volumes" index="0" groups=["input-line"] instance=ExtResource( 4 )]
 margin_right = 1024.0
 margin_bottom = 48.0
 rect_min_size = Vector2( 0, 48 )
 input_name = "bus_master"
 
-[node name="Music" parent="VBoxContainer/Volumes" index="1" instance=ExtResource( 4 )]
-anchor_right = 0.0
+[node name="Music" parent="VBoxContainer/Volumes" index="1" groups=["input-line"] instance=ExtResource( 4 )]
 margin_top = 48.0
 margin_right = 1024.0
 margin_bottom = 96.0
@@ -42,8 +40,7 @@ rect_min_size = Vector2( 0, 48 )
 input_name = "bus_music"
 bus_name = "Music"
 
-[node name="Sfx" parent="VBoxContainer/Volumes" index="2" instance=ExtResource( 4 )]
-anchor_right = 0.0
+[node name="Sfx" parent="VBoxContainer/Volumes" index="2" groups=["input-line"] instance=ExtResource( 4 )]
 margin_top = 96.0
 margin_right = 1024.0
 margin_bottom = 144.0
