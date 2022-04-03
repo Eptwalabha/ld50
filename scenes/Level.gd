@@ -20,13 +20,16 @@ enum STATE {
 var game_state : int = STATE.INTRO
 
 func _ready() -> void:
+	_prepare_current_level()
+
+func _prepare_current_level() -> void:
 	var level = Data.LEVELS[Data.current_level]
 	intro.start(Data.current_level)
 	player.has_control = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	var list = supermarket.generate(level)
 	grocery_list.set_list(list)
-	player_can_checkout
+	player_can_checkout = false
 
 func _input(event: InputEvent) -> void:
 	match game_state:
@@ -53,7 +56,6 @@ func next_level() -> void:
 	supermarket.stop_level()
 	game_state = STATE.END_LEVEL
 	player.has_control = false
-	Data.current_level += 1
 	intro.next_level()
 
 func pause_game() -> void:
@@ -116,3 +118,10 @@ func _on_GroceryList_all_items_picked_up() -> void:
 func _on_Supermarket_player_checkout() -> void:
 	if player_can_checkout:
 		next_level()
+
+func _on_UIIntro_next_level_requested() -> void:
+	Data.current_level += 1
+	if Data.current_level >= len(Data.LEVELS):
+		intro.end_of_game()
+	else:
+		_prepare_current_level()

@@ -41,3 +41,8 @@ func level_ready() -> void:
 	$TextContainer/Action.show()
 	ready_to_fade_out = true
 
+func end_of_game() -> void:
+	anim.play("end-of-game")
+
+func quit_game() -> void:
+	get_tree().quit()

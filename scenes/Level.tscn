@@ -61,6 +61,7 @@ pause_mode = 2
 [connection signal="interact_hovered" from="FPSPlayer" to="." method="_on_FPSPlayer_interact_hovered"]
 [connection signal="all_items_picked_up" from="FPSPlayer/Head/Camera/Hand/GroceryList" to="." method="_on_GroceryList_all_items_picked_up"]
 [connection signal="faded_out" from="UIIntro" to="." method="_on_UIIntro_faded_out"]
+[connection signal="next_level_requested" from="UIIntro" to="." method="_on_UIIntro_next_level_requested"]
 [connection signal="quit_game_requested" from="GameMenu" to="." method="_on_GameMenu_quit_game_requested"]
 [connection signal="resume_game_requested" from="GameMenu" to="." method="_on_GameMenu_resume_game_requested"]
 
