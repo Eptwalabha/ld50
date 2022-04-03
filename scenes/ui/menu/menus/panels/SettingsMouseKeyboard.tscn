@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/fonts/font_title.tres" type="DynamicFont" id=2]
 [ext_resource path="res://scenes/ui/menu/core/form/item/UIMenuFormSlider.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/ui/menu/core/form/item/UIMenuFormSelect.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/ui/menu/core/form/keymapping/KeyRemapper.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ui/menu/core/form/item/custom/UIMenuFormSelectKeyboardMapping.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/ui/menu/menus/panels/SettingsMouseKeyboard.gd" type="Script" id=6]
 
 [node name="SettingsMouseKeyboard" instance=ExtResource( 1 )]
@@ -45,7 +45,7 @@ current_selection = 1
 [node name="Keyboard" type="VBoxContainer" parent="." index="1"]
 margin_top = 152.0
 margin_right = 1024.0
-margin_bottom = 190.0
+margin_bottom = 458.0
 
 [node name="Label" type="Label" parent="Keyboard" index="0"]
 margin_right = 1024.0
@@ -54,17 +54,18 @@ custom_fonts/font = ExtResource( 2 )
 text = "keyboard"
 valign = 1
 
-[node name="Video" type="VBoxContainer" parent="Keyboard" index="1"]
+[node name="Control" type="VBoxContainer" parent="Keyboard" index="1"]
 margin_top = 38.0
 margin_right = 1024.0
-margin_bottom = 38.0
+margin_bottom = 306.0
 size_flags_horizontal = 3
 custom_constants/separation = 0
 
-[node name="KeyRemapper" parent="Keyboard/Video" index="0" instance=ExtResource( 5 )]
+[node name="UIMenuFormSelectKeyboardMapping" parent="Keyboard/Control" index="0" instance=ExtResource( 5 )]
 anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 1024.0
+margin_bottom = 268.0
 
 [connection signal="value_changed" from="Mouse/Mouse/Sensitivity" to="." method="_on_Sensitivity_value_changed"]
 [connection signal="value_changed" from="Mouse/Mouse/InvertY" to="." method="_on_InvertY_value_changed"]
+[connection signal="value_changed" from="Keyboard/Control/UIMenuFormSelectKeyboardMapping" to="." method="_on_UIMenuFormSelectKeyboardMapping_value_changed"]

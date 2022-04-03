@@ -169,7 +169,7 @@ margin_right = 439.0
 margin_bottom = 225.0
 rect_min_size = Vector2( 0, 32 )
 custom_fonts/font = ExtResource( 3 )
-text = "action_to_start"
+text = "press_action_to_start"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

@@ -19,13 +19,14 @@ func start(key_title, key_content) -> void:
 		$TextContainer/Text.text = key_content
 
 func _input(event: InputEvent) -> void:
-	if ready_to_fade_out and event.is_action_pressed("context_action"):
-		ready_to_fade_out = false
-		if Data.DEBUG:
-			emit_signal("faded_out")
-			hide()
-		else:
-			$AnimationPlayer.play("intro-out")
+	if ready_to_fade_out:
+		if event.is_action_pressed("context_action") or event.is_action_pressed("ui_cancel"):
+			ready_to_fade_out = false
+			if Data.DEBUG:
+				emit_signal("faded_out")
+				hide()
+			else:
+				$AnimationPlayer.play("intro-out")
 
 func level_ready() -> void:
 	$TextContainer/Action.show()

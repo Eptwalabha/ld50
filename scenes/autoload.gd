@@ -7,7 +7,7 @@ signal load_config(config)
 
 const GameConfig = preload("res://save-system/GameConfig.gd")
 
-const DEBUG : bool = true
+const DEBUG : bool = false
 const DEBUG_ENVIRONMENT : bool = false
 
 const FOV_MIN : int = 40
@@ -44,19 +44,17 @@ enum INPUT_TYPE {
 	MOUSE
 }
 
-const default_mapping = {
-	"move_forward": [[INPUT_TYPE.KEY, KEY_W], [INPUT_TYPE.KEY, KEY_UP]],
-	"move_backward": [[INPUT_TYPE.KEY, KEY_S], [INPUT_TYPE.KEY, KEY_DOWN]],
-	"move_left": [[INPUT_TYPE.KEY, KEY_A], [INPUT_TYPE.KEY, KEY_LEFT]],
-	"move_right": [[INPUT_TYPE.KEY, KEY_D], [INPUT_TYPE.KEY, KEY_RIGHT]],
-	"move_jump": [null, [INPUT_TYPE.KEY, KEY_SPACE]],
-	"context_action": [[INPUT_TYPE.MOUSE, BUTTON_LEFT], [INPUT_TYPE.KEY, KEY_E]]
+const KEYBOARD_DISPOSITIONS = {
+	"QWERTY": [KEY_W, KEY_A, KEY_S, KEY_D, KEY_SPACE, KEY_E],
+	"AZERTY": [KEY_Z, KEY_Q, KEY_S, KEY_D, KEY_SPACE, KEY_E],
+	"BÉPO": [233, KEY_A, KEY_U, KEY_I, KEY_SPACE, KEY_P]
 }
-var mapping_order = [
-	"move_forward", "move_backward", "move_left", "move_right", "move_jump", "context_action"
+const ARROW_MAPPING = [KEY_UP, KEY_LEFT, KEY_DOWN, KEY_RIGHT, null, KEY_ENTER]
+const MAPPING_ACTIONS = [
+	"move_forward", "move_left", "move_backward", "move_right", "move_jump", "context_action"
 ]
 
-var actions_mapping = default_mapping
+var KEYBOARD_MAPPING = "QWERTY"
 
 var WIDTH_RESOLUTIONS = [
 	800, 1024, 1280, 1334, 1400, 1440, 1600, 1900, 1920, 2048, 2560, 3440
@@ -109,6 +107,7 @@ func apply_config(config: GameConfig) -> void:
 	set_language(config.data['language'])
 	MOUSE_SENSITIVITY = config.data['mouse_sensitivity']
 	MOUSE_INVERT_Y = config.data['mouse_invert_y']
+	set_keyboard_mapping(config.data['mapping'])
 
 func get_config() -> GameConfig:
 	var config : GameConfig = GameConfig.new()
@@ -124,7 +123,8 @@ func get_config() -> GameConfig:
 		'vsync_on': OS.vsync_enabled,
 		'language': TranslationServer.get_locale(),
 		'mouse_sensitivity': MOUSE_SENSITIVITY,
-		'mouse_invert_y': MOUSE_INVERT_Y
+		'mouse_invert_y': MOUSE_INVERT_Y,
+		'mapping': KEYBOARD_MAPPING
 	}
 	return config
 
@@ -193,3 +193,29 @@ func set_vsync(use_vsync: bool) -> void:
 
 func get_vsync_value() -> String:
 	return "true" if OS.vsync_enabled else "false"
+
+func set_keyboard_mapping(keyboard_type: String) -> void:
+	for disposition in KEYBOARD_DISPOSITIONS:
+		if disposition == keyboard_type:
+			KEYBOARD_MAPPING = keyboard_type
+	update_keyboard_input()
+
+func update_keyboard_input() -> void:
+	var mapping = KEYBOARD_DISPOSITIONS[KEYBOARD_MAPPING]
+	for i in range(len(MAPPING_ACTIONS)):
+		var action = MAPPING_ACTIONS[i]
+		for input in InputMap.get_action_list(action):
+			if input is InputEventKey:
+				InputMap.action_erase_event(action, input)
+		var new_input = InputEventKey.new()
+		new_input.scancode = mapping[i]
+		InputMap.action_add_event(action, new_input)
+		if ARROW_MAPPING[i] != null:
+			var arrow_input = InputEventKey.new()
+			arrow_input.scancode = ARROW_MAPPING[i]
+			InputMap.action_add_event(action, arrow_input)
+
+func get_scancode_for(action) -> int:
+	var mapping = KEYBOARD_DISPOSITIONS[KEYBOARD_MAPPING]
+	var i = MAPPING_ACTIONS.find(action)
+	return mapping[i]

@@ -67,8 +67,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Control" type="Control" parent="Title/Back/HBoxContainer"]
+margin_right = 13.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+
 [node name="TextureRect" type="TextureRect" parent="Title/Back/HBoxContainer" groups=["controller-prompt"]]
-margin_right = 32.0
+margin_left = 17.0
+margin_right = 49.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 32, 0 )
 size_flags_horizontal = 4
@@ -78,13 +84,19 @@ expand = true
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="Title/Back/HBoxContainer"]
-margin_left = 36.0
-margin_right = 200.0
+margin_left = 53.0
+margin_right = 182.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 text = "back_to_main_menu"
 valign = 1
+
+[node name="Control2" type="Control" parent="Title/Back/HBoxContainer"]
+margin_left = 186.0
+margin_right = 200.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
 
 [node name="HSeparator" type="HSeparator" parent="."]
 margin_top = 36.0

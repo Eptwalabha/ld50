@@ -14,3 +14,6 @@ func get_config() -> Dictionary:
 	var config : Dictionary = {}
 	config['mapping'] = Data.actions_mapping
 	return config
+
+func _on_UIMenuFormSelectKeyboardMapping_value_changed(value) -> void:
+	Data.set_keyboard_mapping(value)

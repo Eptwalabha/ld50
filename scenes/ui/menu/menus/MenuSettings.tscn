@@ -26,16 +26,19 @@ margin_bottom = 16.0
 size_flags_horizontal = 4
 
 [node name="TextureRect" parent="Title/Back/HBoxContainer" index="0"]
+margin_left = 0.0
+margin_right = 32.0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
 [node name="Label" parent="Title/Back/HBoxContainer" index="1"]
+margin_left = 36.0
 margin_top = 9.0
 margin_right = 113.0
 margin_bottom = 23.0
+rect_min_size = Vector2( 0, 0 )
 size_flags_horizontal = 1
 size_flags_vertical = 4
-valign = 0
 
 [node name="Scroll" parent="VBoxContainer/Panels/Margin" index="0"]
 follow_focus = true

@@ -13,11 +13,12 @@ var player_daily_credits : int = 100
 var player_objective : int = 0
 
 enum STATE {
+	INTRO,
 	PLAYING,
 	MENU
 }
 
-var game_state : int = STATE.PLAYING
+var game_state : int = STATE.INTRO
 
 func _ready() -> void:
 	intro.start("title", "test")
@@ -88,6 +89,7 @@ func _on_Supermarket_announce_dialog_started(key) -> void:
 func _on_UIIntro_faded_out() -> void:
 	supermarket.start_level()
 	promotion_timer.start()
+	game_state = STATE.PLAYING
 	player.has_control = true
 
 func _on_Promotion_timeout() -> void:
