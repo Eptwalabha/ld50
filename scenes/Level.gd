@@ -46,6 +46,8 @@ func _input_playing(event: InputEvent) -> void:
 			player.interact_with()
 			var parent = current_item.get_parent()
 			if parent is PickableItem and parent.is_grocery:
+				if parent.type == supermarket.current_promotion:
+					print("promo")
 				grocery_list.item_picked(parent.type)
 			current_item.interact_with(player)
 			current_item = null
@@ -53,7 +55,7 @@ func _input_playing(event: InputEvent) -> void:
 		pause_game()
 
 func replay_level() -> void:
-#	Data.current_level -= 1
+	Data.current_level -= 1
 	next_level()
 
 func next_level() -> void:

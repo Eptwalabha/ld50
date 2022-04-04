@@ -1,0 +1,88 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://assets/images/groceries/can_of_soup.svg" type="Texture" id=1]
+[ext_resource path="res://assets/images/groceries/box_of_cereal.svg" type="Texture" id=2]
+[ext_resource path="res://assets/images/groceries/snacks_01.svg" type="Texture" id=3]
+[ext_resource path="res://assets/images/groceries/meat.svg" type="Texture" id=4]
+[ext_resource path="res://assets/images/groceries/soda_01.svg" type="Texture" id=5]
+[ext_resource path="res://assets/images/groceries/toilet_paper.svg" type="Texture" id=6]
+[ext_resource path="res://assets/images/groceries/soda_02.svg" type="Texture" id=7]
+[ext_resource path="res://assets/images/groceries/coffee.svg" type="Texture" id=8]
+[ext_resource path="res://assets/images/groceries/snacks_02.svg" type="Texture" id=9]
+[ext_resource path="res://assets/images/groceries/instant_noodle.svg" type="Texture" id=10]
+[ext_resource path="res://assets/images/groceries/vegetables.svg" type="Texture" id=11]
+[ext_resource path="res://assets/images/groceries/fruits.svg" type="Texture" id=12]
+[ext_resource path="res://assets/images/groceries/sugar.svg" type="Texture" id=13]
+[ext_resource path="res://assets/images/groceries/promo.svg" type="Texture" id=14]
+[ext_resource path="res://scenes/ad/PromoAd.gd" type="Script" id=15]
+[ext_resource path="res://assets/images/groceries/promo-bg.svg" type="Texture" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "spin",
+"speed": 10.0
+} ]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/What:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "zoom"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/What:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.8, 0.8 ), Vector2( 0.5, 0.5 ) ]
+}
+
+[node name="PromoAd" type="Node2D"]
+script = ExtResource( 15 )
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 100, 200 )
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 16 )
+
+[node name="Pivot" type="Node2D" parent="."]
+position = Vector2( 100, 200 )
+
+[node name="What" type="AnimatedSprite" parent="Pivot"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "spin"
+frame = 8
+playing = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 100, 200 )
+texture = ExtResource( 14 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/zoom = SubResource( 3 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

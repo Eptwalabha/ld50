@@ -13,6 +13,10 @@ onready var goods = $Goods
 onready var promotion_timer: Timer = $Promotion
 onready var level_timeout: Timer = $End
 onready var anim : AnimationPlayer = $AnimationPlayer
+onready var player_spawn = $Navigation/NavigationMeshInstance/PlayerSpawn
+onready var ad : AdScreen = $Viewport/PromoAd
+
+var current_promotion: String = ""
 
 const items = {
 	"can_of_soup": preload("res://scenes/supermarket/item/grocery/CanOfSoup.tscn"),
@@ -30,11 +34,11 @@ const items = {
 	"sugar": preload("res://scenes/supermarket/item/grocery/Sugar.tscn")
 }
 
-var promotion_delay : float = 60.0
+var promotion_delay : float = 15.0
 var level_delay : float = 200.0
 
 func _ready() -> void:
-	pass
+	ad.turn(false)
 
 func generate(level: Dictionary) -> Array:
 	_reset_supermarket()
@@ -45,7 +49,7 @@ func generate(level: Dictionary) -> Array:
 	return new_list
 
 func random_starting_position() -> Vector3:
-	return $PlayerSpawn.get_child(randi() % $PlayerSpawn.get_child_count()).global_transform.origin
+	return player_spawn.get_child(randi() % player_spawn.get_child_count()).global_transform.origin
 
 func _random_items_list(level: Dictionary) -> Array:
 	var amount : int = int(max(5, 40 - Data.current_level * 10))
@@ -107,12 +111,17 @@ func _get_available_positions(item_type: String) -> Array:
 	return available_positions
 
 func start_level() -> void:
+	ad.turn(false)
 	clock.reset_clock(false)
 	anim.play("pa-closing")
 	promotion_timer.start(promotion_delay)
 	level_timeout.start(level_delay)
 
 func new_promotion() -> void:
+	if !ad.on:
+		ad.turn(true)
+	current_promotion = Data.ITEMS[randi() % len(Data.ITEMS)]
+	ad.set_current_promotion(current_promotion, promotion_delay)
 	anim.play("pa-new_promotion")
 
 func announce_dialog(key: String) -> void:

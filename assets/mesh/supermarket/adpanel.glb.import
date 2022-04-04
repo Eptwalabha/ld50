@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/pillar.glb-98daee95c8d8a31b5583c44a0b4188dc.scn"
+path="res://.import/adpanel.glb-24122678e5ad0e2c52259255db7ae234.scn"
 
 [deps]
 
-source_file="res://assets/mesh/supermarket/pillar.glb"
-dest_files=[ "res://.import/pillar.glb-98daee95c8d8a31b5583c44a0b4188dc.scn" ]
+source_file="res://assets/mesh/supermarket/adpanel.glb"
+dest_files=[ "res://.import/adpanel.glb-24122678e5ad0e2c52259255db7ae234.scn" ]
 
 [params]
 
