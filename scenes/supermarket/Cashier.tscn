@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/model/supermarket/CashierModel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/core/InteractTrigger.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/supermarket/Cashier.gd" type="Script" id=3]
 [ext_resource path="res://assets/images/groceries/cashier.svg" type="Texture" id=4]
 [ext_resource path="res://assets/mesh/supermarket/computer.glb" type="PackedScene" id=5]
+[ext_resource path="res://assets/images/nope.svg" type="Texture" id=6]
 
 [sub_resource type="SpatialMaterial" id=3]
 flags_transparent = true
@@ -25,7 +26,22 @@ material = SubResource( 1 )
 size = Vector2( 1, 2 )
 
 [sub_resource type="BoxShape" id=6]
-extents = Vector3( 1, 1, 2.5 )
+extents = Vector3( 0.760533, 1, 2.5 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 1.25105, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=9]
+flags_transparent = true
+flags_unshaded = true
+albedo_texture = ExtResource( 6 )
+distance_fade_mode = 2
+distance_fade_min_distance = 3.0
+distance_fade_max_distance = 1.0
+
+[sub_resource type="QuadMesh" id=8]
+material = SubResource( 9 )
+size = Vector2( 0.8, 0.8 )
 
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 0.5, 0.5, 0.5 )
@@ -56,14 +72,24 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="Cashier/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.237247, 0, 1.5 )
 shape = SubResource( 6 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Cashier/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05918, 0, 1.92643 )
+shape = SubResource( 7 )
 
 [node name="computer" parent="Cashier" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.046293, 0, -5 )
 
+[node name="Nope" type="MeshInstance" parent="Cashier"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84824, 1.15838, 2.76371 )
+mesh = SubResource( 8 )
+material/0 = null
+
 [node name="InteractTrigger" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.658544, 1.19983, -0.582049 )
+visible = false
 hover_text = "checkout"
 
 [node name="CollisionShape" type="CollisionShape" parent="InteractTrigger"]

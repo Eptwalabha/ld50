@@ -8,7 +8,6 @@ signal announce_dialog_started(key)
 signal announce_dialog_ended
 
 onready var shelves = $Navigation/NavigationMeshInstance/Shelves
-onready var clock : Clock = $Clock
 onready var goods = $Goods
 onready var promotion_timer: Timer = $Promotion
 onready var level_timeout: Timer = $End
@@ -16,6 +15,7 @@ onready var anim : AnimationPlayer = $AnimationPlayer
 onready var player_spawn = $Navigation/NavigationMeshInstance/PlayerSpawn
 onready var ad : AdScreen = $Viewport/PromoAd
 onready var clocks = $Clocks
+onready var cashiers = $Navigation/NavigationMeshInstance/Cashiers
 
 var current_promotion: String = ""
 
@@ -47,8 +47,19 @@ func generate(level: Dictionary) -> Array:
 	var new_list = _generate_goods(level.list)
 	_generate_goods(_random_items_list(level))
 	emit_signal("supermarket_generated")
+	_reset_cashiers()
 	_reset_clocks()
 	return new_list
+
+func _reset_cashiers() -> void:
+	for cashier in cashiers.get_children():
+		if cashier is Cashier:
+			cashier.reset()
+
+func player_ready_to_checkout() -> void:
+	for cashier in cashiers.get_children():
+		if cashier is Cashier:
+			cashier.player_ready_to_checkout()
 
 func _reset_clocks() -> void:
 	for clock in clocks.get_children():
@@ -155,3 +166,6 @@ func stop_level() -> void:
 	promotion_timer.stop()
 	level_timeout.stop()
 	_reset_clocks()
+
+func _on_GroceryList_all_items_picked_up() -> void:
+	player_ready_to_checkout()

@@ -44,11 +44,12 @@ func _input_playing(event: InputEvent) -> void:
 	elif event.is_action_pressed("context_action"):
 		if current_item != null:
 			player.interact_with()
-			var parent = current_item.get_parent()
-			if parent is PickableItem and parent.is_grocery:
-				if parent.type == supermarket.current_promotion:
+			var the_item = current_item.get_parent()
+			if the_item is PickableItem and the_item.is_grocery:
+				var item_type = the_item.type
+				grocery_list.item_picked(item_type)
+				if item_type == supermarket.current_promotion:
 					print("promo")
-				grocery_list.item_picked(parent.type)
 			current_item.interact_with(player)
 			current_item = null
 	if event.is_action_pressed("pause_game"):
