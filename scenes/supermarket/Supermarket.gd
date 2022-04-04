@@ -2,6 +2,7 @@ class_name Supermarket extends Spatial
 
 signal supermarket_generated
 signal player_checkout
+signal level_timed_out
 
 signal announce_dialog_started(key)
 signal announce_dialog_ended
@@ -9,6 +10,7 @@ signal announce_dialog_ended
 onready var shelves = $Shelves
 onready var goods = $Goods
 onready var promotion_timer: Timer = $Promotion
+onready var level_timeout: Timer = $End
 onready var anim : AnimationPlayer = $AnimationPlayer
 
 const items = {
@@ -28,6 +30,7 @@ const items = {
 }
 
 var promotion_delay : float = 60.0
+var level_delay : float = 200.0
 
 func _ready() -> void:
 	pass
@@ -40,8 +43,11 @@ func generate(level: Dictionary) -> Array:
 	emit_signal("supermarket_generated")
 	return new_list
 
+func random_starting_position() -> Vector3:
+	return $PlayerSpawn.get_child(randi() % $PlayerSpawn.get_child_count()).global_transform.origin
+
 func _random_items_list(level: Dictionary) -> Array:
-	var amount = 40
+	var amount : int = int(max(5, 40 - Data.current_level * 10))
 	return [
 		["can_of_soup", randi() % amount],
 		["box_of_cereal", randi() % amount],
@@ -103,6 +109,7 @@ func start_level() -> void:
 	$Clock.reset_clock(false)
 	anim.play("pa-closing")
 	promotion_timer.start(promotion_delay)
+	level_timeout.start(level_delay)
 
 func new_promotion() -> void:
 	anim.play("pa-new_promotion")
@@ -116,9 +123,13 @@ func announce_dialog_end() -> void:
 func _on_Cashier_player_checkout() -> void:
 	emit_signal("player_checkout")
 
+func _on_End_timeout() -> void:
+	emit_signal("level_timed_out")
+
 func _on_Promotion_timeout() -> void:
 	new_promotion()
 
 func stop_level() -> void:
 	promotion_timer.stop()
+	level_timeout.stop()
 	$Clock.reset_clock(true)

@@ -55,6 +55,7 @@ pause_mode = 2
 
 [connection signal="announce_dialog_ended" from="Supermarket" to="." method="_on_Supermarket_announce_dialog_ended"]
 [connection signal="announce_dialog_started" from="Supermarket" to="." method="_on_Supermarket_announce_dialog_started"]
+[connection signal="level_timed_out" from="Supermarket" to="." method="_on_Supermarket_level_timed_out"]
 [connection signal="player_checkout" from="Supermarket" to="." method="_on_Supermarket_player_checkout"]
 [connection signal="supermarket_generated" from="Supermarket" to="." method="_on_Supermarket_supermarket_generated"]
 [connection signal="interact_exited" from="FPSPlayer" to="." method="_on_FPSPlayer_interact_exited"]

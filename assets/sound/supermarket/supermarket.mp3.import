@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/supermarket.mp3-e00f781cd3da7f12c33ee2455f63d963.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/supermarket/supermarket.mp3"
+dest_files=[ "res://.import/supermarket.mp3-e00f781cd3da7f12c33ee2455f63d963.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

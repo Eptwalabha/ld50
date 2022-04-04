@@ -52,10 +52,18 @@ func _input_playing(event: InputEvent) -> void:
 	if event.is_action_pressed("pause_game"):
 		pause_game()
 
+func replay_level() -> void:
+#	Data.current_level -= 1
+	next_level()
+
 func next_level() -> void:
+	player.has_control = false
+	if player._current_interact != null:
+		player._current_interact.queue_free()
+		player._current_interact = null
+	current_item = null
 	supermarket.stop_level()
 	game_state = STATE.END_LEVEL
-	player.has_control = false
 	intro.next_level()
 
 func pause_game() -> void:
@@ -83,6 +91,7 @@ func _remove_current_item(item: InteractTrigger) -> void:
 	current_item = null
 
 func _on_Supermarket_supermarket_generated() -> void:
+	player.global_transform.origin = supermarket.random_starting_position()
 	intro.level_ready()
 
 func _on_FPSPlayer_interact_hovered(item) -> void:
@@ -125,3 +134,6 @@ func _on_UIIntro_next_level_requested() -> void:
 		intro.end_of_game()
 	else:
 		_prepare_current_level()
+
+func _on_Supermarket_level_timed_out() -> void:
+	replay_level()

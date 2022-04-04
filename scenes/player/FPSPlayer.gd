@@ -149,7 +149,7 @@ func _on_Ray_area_entered(area) -> void:
 		emit_signal("interact_hovered", _current_interact)
 
 func _on_Ray_area_exited() -> void:
-	if _current_interact is InteractTrigger:
+	if has_control and _current_interact is InteractTrigger:
 		emit_signal("interact_exited", _current_interact)
 	_current_interact = null
 

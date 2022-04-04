@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/supermarket/shelves/ItemPosition.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/supermarket/shelves/Shelve.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/model/supermarket/FridgeModel.tscn" type="PackedScene" id=3]
+
+[node name="Fridge" instance=ExtResource( 2 )]
+items_strs = "meat,vegetables"
+
+[node name="ItemPosition1" parent="Spawn" index="0" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528037, 0.988598, -1 )
+
+[node name="ItemPosition2" parent="Spawn" index="1" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528037, 0.988598, 0 )
+
+[node name="ItemPosition3" parent="Spawn" index="2" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528037, 0.988598, 1 )
+
+[node name="ItemPosition4" parent="Spawn" index="3" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528037, 0.0941482, -1 )
+
+[node name="ItemPosition5" parent="Spawn" index="4" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528037, 0.0941482, 0 )
+
+[node name="ItemPosition6" parent="Spawn" index="5" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528037, 0.0941482, 1 )
+
+[node name="FridgeModel" parent="." index="2" instance=ExtResource( 3 )]

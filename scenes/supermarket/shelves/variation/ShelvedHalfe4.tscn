@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/supermarket/shelves/Shelve.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/model/supermarket/ShelveHalfModel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/supermarket/shelves/ItemPosition.tscn" type="PackedScene" id=3]
+
+[node name="ShelvedHalfe4" instance=ExtResource( 1 )]
+items_strs = "can_of_soup,toilet_paper"
+
+[node name="ItemPosition1" parent="Spawn" index="0" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 0.579335, -1.27621 )
+
+[node name="ItemPosition2" parent="Spawn" index="1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 0.579335, 0 )
+
+[node name="ItemPosition3" parent="Spawn" index="2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 0.579335, 1.26992 )
+
+[node name="ItemPosition4" parent="Spawn" index="3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 1.07203, -1.27621 )
+
+[node name="ItemPosition5" parent="Spawn" index="4" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 1.07203, 0 )
+
+[node name="ItemPosition6" parent="Spawn" index="5" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 1.07203, 1.26992 )
+
+[node name="ItemPosition7" parent="Spawn" index="6" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 1.67982, -1.27621 )
+
+[node name="ItemPosition8" parent="Spawn" index="7" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 1.67982, 0 )
+
+[node name="ItemPosition9" parent="Spawn" index="8" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294764, 1.67982, 1.26992 )
+
+[node name="ShelveHalfModel" parent="." index="2" instance=ExtResource( 2 )]
