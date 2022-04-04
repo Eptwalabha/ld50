@@ -42,6 +42,8 @@ enum INPUT_TYPE {
 	MOUSE
 }
 
+const TIME_BONUS : float = 3.0
+
 const KEYBOARD_DISPOSITIONS = {
 	"QWERTY": [KEY_W, KEY_A, KEY_S, KEY_D, KEY_SPACE, KEY_E],
 	"AZERTY": [KEY_Z, KEY_Q, KEY_S, KEY_D, KEY_SPACE, KEY_E],
@@ -117,7 +119,9 @@ const LEVELS = [
 			["can_of_soup", 1],
 			["toilet_paper", 1]
 		],
-		"promotion": 1,
+		"music": true,
+		"time": 300,
+		"promo_delay": 30,
 		"disturbance": 0
 	},
 	{
@@ -130,7 +134,9 @@ const LEVELS = [
 			["toilet_paper", 1],
 			["snacks_01", 1],
 		],
-		"promotion": 2,
+		"music": true,
+		"time": 300,
+		"promo_delay": 30,
 		"disturbance": 0
 	},
 	{
@@ -145,7 +151,9 @@ const LEVELS = [
 			["toilet_paper", 1],
 			["snacks_02", 1],
 		],
-		"promotion": 3,
+		"music": true,
+		"time": 250,
+		"promo_delay": 20,
 		"disturbance": 1
 	},
 	{
@@ -160,7 +168,9 @@ const LEVELS = [
 			["snacks_01", 1],
 			["snacks_02", 2],
 		],
-		"promotion": 4,
+		"music": true,
+		"time": 200,
+		"promo_delay": 15,
 		"disturbance": 2
 	},
 	{
@@ -174,13 +184,16 @@ const LEVELS = [
 			["snacks_01", 2],
 			["snacks_02", 3],
 		],
-		"promotion": 5,
+		"music": true,
+		"time": 200,
+		"promo_delay": 15,
 		"disturbance": 3
 	},
 	{
 		"list": [],
-		"count-down": false,
-		"promotion": 0,
+		"time": 0,
+		"music": true,
+		"promo_delay": 15,
 		"disturbance": 4
 	}
 ]

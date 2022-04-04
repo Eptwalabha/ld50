@@ -11,6 +11,7 @@ onready var shelves = $Navigation/NavigationMeshInstance/Shelves
 onready var goods = $Goods
 onready var promotion_timer: Timer = $Promotion
 onready var level_timeout: Timer = $End
+onready var start_timer : Timer = $StartLevel
 onready var anim : AnimationPlayer = $AnimationPlayer
 onready var player_spawn = $Navigation/NavigationMeshInstance/PlayerSpawn
 onready var ad : AdScreen = $Viewport/PromoAd
@@ -42,6 +43,8 @@ func _ready() -> void:
 	ad.turn(false)
 
 func generate(level: Dictionary) -> Array:
+	level_delay = level.time
+	promotion_delay = level.promo_delay
 	_reset_supermarket()
 	_generate_supermarket()
 	var new_list = _generate_goods(level.list)
@@ -49,12 +52,15 @@ func generate(level: Dictionary) -> Array:
 	emit_signal("supermarket_generated")
 	_reset_cashiers()
 	_reset_clocks()
+	_play_music(level.music)
 	return new_list
 
 func _reset_cashiers() -> void:
 	for cashier in cashiers.get_children():
 		if cashier is Cashier:
 			cashier.reset()
+			if level_delay <= 0:
+				cashier.desert()
 
 func player_ready_to_checkout() -> void:
 	for cashier in cashiers.get_children():
@@ -134,11 +140,25 @@ func _get_available_positions(item_type: String) -> Array:
 	return available_positions
 
 func start_level() -> void:
-	ad.turn(false)
-	_start_clocks(level_delay)
-	anim.play("pa-closing")
-	promotion_timer.start(promotion_delay)
-	level_timeout.start(level_delay)
+	if level_delay > 0:
+		ad.turn(false)
+		_start_clocks(level_delay)
+		anim.play("pa-closing")
+		start_timer.start()
+		level_timeout.start(level_delay)
+
+func _play_music(playing : bool = true) -> void:
+	for audio in $Music.get_children():
+		if audio is AudioStreamPlayer3D:
+			audio.playing = playing
+
+func give_time_bonus() -> void:
+	if level_delay <= 0:
+		return
+	level_timeout.start(min(level_delay, level_timeout.time_left + Data.TIME_BONUS))
+	for clock in clocks.get_children():
+		if clock is Clock:
+			clock.acc = max(0.0, clock.acc - Data.TIME_BONUS)
 
 func new_promotion() -> void:
 	if !ad.on:
@@ -169,3 +189,7 @@ func stop_level() -> void:
 
 func _on_GroceryList_all_items_picked_up() -> void:
 	player_ready_to_checkout()
+
+func _on_StartLevel_timeout() -> void:
+	new_promotion()
+	promotion_timer.start(promotion_delay)

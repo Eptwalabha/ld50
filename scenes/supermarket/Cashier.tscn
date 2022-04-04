@@ -29,7 +29,7 @@ size = Vector2( 1, 2 )
 extents = Vector3( 0.760533, 1, 2.5 )
 
 [sub_resource type="BoxShape" id=7]
-extents = Vector3( 1.25105, 1, 1 )
+extents = Vector3( 1.43881, 1.50171, 1 )
 
 [sub_resource type="SpatialMaterial" id=9]
 flags_transparent = true
@@ -75,8 +75,13 @@ collision_mask = 0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.237247, 0, 1.5 )
 shape = SubResource( 6 )
 
-[node name="CollisionShape2" type="CollisionShape" parent="Cashier/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05918, 0, 1.92643 )
+[node name="BlockPath" type="StaticBody" parent="Cashier"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="BlockPath" type="CollisionShape" parent="Cashier/BlockPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67897, 0, 1.92643 )
 shape = SubResource( 7 )
 
 [node name="computer" parent="Cashier" instance=ExtResource( 5 )]

@@ -5,14 +5,23 @@ signal player_checkout
 export(bool) var with_cashier = true
 onready var trigger : InteractTrigger = $InteractTrigger
 onready var forbidden : MeshInstance = $Cashier/Nope
+onready var employee = $Cashier/Employee
+onready var block : StaticBody = $Cashier/BlockPath
 var can_checkout : bool = false
 
 func _ready() -> void:
-	$Cashier/Employee.visible = with_cashier
+	employee.visible = true
 
 func reset() -> void:
 	can_checkout = false
+	block.collision_layer = 3
+	employee.visible = true
 	_update_cashier()
+
+func desert() -> void:
+	employee.visible = false
+	block.collision_layer = 0
+	forbidden.visible = false
 
 func player_ready_to_checkout() -> void:
 	can_checkout = true

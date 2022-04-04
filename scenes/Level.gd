@@ -49,7 +49,7 @@ func _input_playing(event: InputEvent) -> void:
 				var item_type = the_item.type
 				grocery_list.item_picked(item_type)
 				if item_type == supermarket.current_promotion:
-					print("promo")
+					supermarket.give_time_bonus()
 			current_item.interact_with(player)
 			current_item = null
 	if event.is_action_pressed("pause_game"):
