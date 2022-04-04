@@ -15,6 +15,7 @@ onready var level_timeout: Timer = $End
 onready var anim : AnimationPlayer = $AnimationPlayer
 onready var player_spawn = $Navigation/NavigationMeshInstance/PlayerSpawn
 onready var ad : AdScreen = $Viewport/PromoAd
+onready var clocks = $Clocks
 
 var current_promotion: String = ""
 
@@ -35,7 +36,7 @@ const items = {
 }
 
 var promotion_delay : float = 15.0
-var level_delay : float = 200.0
+var level_delay : float = 60.0
 
 func _ready() -> void:
 	ad.turn(false)
@@ -46,7 +47,18 @@ func generate(level: Dictionary) -> Array:
 	var new_list = _generate_goods(level.list)
 	_generate_goods(_random_items_list(level))
 	emit_signal("supermarket_generated")
+	_reset_clocks()
 	return new_list
+
+func _reset_clocks() -> void:
+	for clock in clocks.get_children():
+		if clock is Clock:
+			clock.reset(false)
+
+func _start_clocks(time: float) -> void:
+	for clock in clocks.get_children():
+		if clock is Clock:
+			clock.start(time)
 
 func random_starting_position() -> Vector3:
 	return player_spawn.get_child(randi() % player_spawn.get_child_count()).global_transform.origin
@@ -112,7 +124,7 @@ func _get_available_positions(item_type: String) -> Array:
 
 func start_level() -> void:
 	ad.turn(false)
-	clock.reset_clock(false)
+	_start_clocks(level_delay)
 	anim.play("pa-closing")
 	promotion_timer.start(promotion_delay)
 	level_timeout.start(level_delay)
@@ -142,4 +154,4 @@ func _on_Promotion_timeout() -> void:
 func stop_level() -> void:
 	promotion_timer.stop()
 	level_timeout.stop()
-	clock.reset_clock(true)
+	_reset_clocks()
