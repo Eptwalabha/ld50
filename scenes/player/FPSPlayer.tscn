@@ -44,7 +44,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -
 enabled = true
 exclude_parent = false
 cast_to = Vector3( 0, -1.6, 0 )
-collision_mask = 4
+collision_mask = 12
 collide_with_areas = true
 
 [node name="Hand" type="Spatial" parent="Head/Camera"]

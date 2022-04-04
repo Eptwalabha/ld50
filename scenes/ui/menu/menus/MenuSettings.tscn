@@ -81,6 +81,4 @@ panel_name = "sub_panel_settings_mouse_keyboard"
 [node name="PanelBack" type="AudioStreamPlayer2D" parent="." index="4"]
 stream = ExtResource( 2 )
 volume_db = -10.0
-
-[node name="PanelChange" parent="." index="5"]
-bus = "Master"
+bus = "Sfx"

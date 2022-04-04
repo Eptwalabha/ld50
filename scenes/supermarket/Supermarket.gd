@@ -7,7 +7,8 @@ signal level_timed_out
 signal announce_dialog_started(key)
 signal announce_dialog_ended
 
-onready var shelves = $Shelves
+onready var shelves = $Navigation/NavigationMeshInstance/Shelves
+onready var clock : Clock = $Clock
 onready var goods = $Goods
 onready var promotion_timer: Timer = $Promotion
 onready var level_timeout: Timer = $End
@@ -106,7 +107,7 @@ func _get_available_positions(item_type: String) -> Array:
 	return available_positions
 
 func start_level() -> void:
-	$Clock.reset_clock(false)
+	clock.reset_clock(false)
 	anim.play("pa-closing")
 	promotion_timer.start(promotion_delay)
 	level_timeout.start(level_delay)
@@ -132,4 +133,4 @@ func _on_Promotion_timeout() -> void:
 func stop_level() -> void:
 	promotion_timer.stop()
 	level_timeout.stop()
-	$Clock.reset_clock(true)
+	clock.reset_clock(true)

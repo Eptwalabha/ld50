@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/sound/supermarket/closing-announcement.mp3" type="AudioStream" id=1]
 [ext_resource path="res://scenes/supermarket/shelves/variation/ShelveRegular4.tscn" type="PackedScene" id=2]
@@ -11,7 +11,15 @@
 [ext_resource path="res://assets/sound/supermarket/supermarket.mp3" type="AudioStream" id=9]
 [ext_resource path="res://assets/model/supermarket/SupermarketModel.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/supermarket/shelves/variation/Fridge.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/environment/Environment.tres" type="Environment" id=13]
 [ext_resource path="res://scenes/supermarket/Cashier.tscn" type="PackedScene" id=22]
+
+[sub_resource type="NavigationMesh" id=6]
+vertices = PoolVector3Array( -43.4, 0.4, -49.4, -49.4, 0.4, -49.4, -49.4, 0.4, -42.2, 49.3, 0.4, -42.2, 49.3, 0.4, -49.4, 43, 0.4, -49.4, -37.1, 0.4, -49.4, -43.4, 0.4, -49.4, -49.4, 0.4, -42.2, -49.4, 0.4, -35, 49.3, 0.4, -42.2, 43, 0.4, -49.4, 36.7, 0.4, -49.4, -12.5, 0.4, -49.4, -13.1, 0.4, -20.6, -6.5, 0.4, -20.6, -6.5, 0.4, -49.4, 49.3, 0.4, -35, 49.3, 0.4, -42.2, 36.7, 0.4, -49.4, 30.4, 0.4, -49.4, -31.1, 0.4, -49.4, -37.1, 0.4, -49.4, -49.4, 0.4, -35, -49.4, 0.4, -27.8, 12.1, 0.4, -49.4, 5.8, 0.4, -49.4, -6.5, 0.4, -20.6, -0.199997, 0.4, -49.4, -6.5, 0.4, -49.4, -6.5, 0.4, -20.6, 49.3, 0.4, -27.8, 49.3, 0.4, -35, 30.4, 0.4, -49.4, 24.4, 0.4, -49.4, -49.4, 0.4, -27.8, -49.4, 0.4, -20.6, -19.4, 0.4, -20.6, -24.8, 0.4, -49.4, -31.1, 0.4, -49.4, 18.1, 0.4, -49.4, 12.1, 0.4, -49.4, -6.5, 0.4, -20.6, 49.3, 0.4, -27.8, 24.4, 0.4, -49.4, 18.1, 0.4, -49.4, -6.5, 0.4, -20.6, 49.3, 0.4, -20.6, -18.8, 0.4, -49.4, -24.8, 0.4, -49.4, -19.4, 0.4, -20.6, -18.8, 0.4, -49.4, -19.4, 0.4, -20.6, -13.1, 0.4, -20.6, -12.5, 0.4, -49.4, 5.8, 0.4, -49.4, -0.199997, 0.4, -49.4, -6.5, 0.4, -20.6, -20.6, 0.4, -19.4, -19.7, 0.4, -19.7, -19.4, 0.4, -20.6, -49.4, 0.4, -20.6, -49.4, 0.4, -6.2, -20.3, 0.4, -6.2, -20.6, 0.4, -12.8, -49.4, 0.4, -13.4, -20.6, 0.4, -19.4, -49.4, 0.4, -20.6, -49.4, 0.4, -13.4, -20.6, 0.4, -12.8, -18.2, 0.4, -18.2, -18.2, 0.4, -16.7, -14.9, 0.4, -16.7, -18.2, 0.4, -18.2, -14.9, 0.4, -16.7, -11.9, 0.4, -16.7, -6.5, 0.4, -18.2, 2.8, 0.4, -16.7, 49.3, 0.4, -16.7, 49.3, 0.4, -20.6, -6.5, 0.4, -20.6, -6.5, 0.4, -18.2, -11.9, 0.4, -16.7, -11, 0.4, -16.7, -6.5, 0.4, -18.2, -11, 0.4, -16.7, -8, 0.4, -16.7, -6.5, 0.4, -18.2, -8, 0.4, -16.7, -5.9, 0.4, -16.7, -6.5, 0.4, -20.6, -6.5, 0.4, -18.2, -5.9, 0.4, -16.7, 2.8, 0.4, -16.7, 4.3, 0.4, -6.2, 4.3, 0.4, -7.1, 2.8, 0.4, -7.1, -11, 0.4, -16.7, -11.9, 0.4, -16.7, -11.6, 0.4, -7.7, -11.3, 0.4, -7.4, -8, 0.4, -7.1, -12.2, 0.4, -7.1, -18.5, 0.4, -6.2, -11.3, 0.4, -7.4, -11.6, 0.4, -7.7, -12.2, 0.4, -7.1, -8, 0.4, -7.1, -11.3, 0.4, -7.4, -12.2, 0.4, -7.1, -14.9, 0.4, -7.1, -14.9, 0.4, -16.7, -18.2, 0.4, -16.7, -18.5, 0.4, -6.2, 4.3, 0.4, -6.2, -5.9, 0.4, -7.1, -8, 0.4, -7.1, -18.5, 0.4, -6.2, -12.2, 0.4, -7.1, -14.9, 0.4, -7.1, -18.5, 0.4, -6.2, 4.3, 0.4, -6.2, 2.8, 0.4, -7.1, -5.9, 0.4, -7.1, 2.8, 0.4, -9.8, 2.8, 0.4, -7.1, 4.3, 0.4, -7.1, 4.6, 0.4, -10.7, -5.9, 0.4, -9.8, -5.9, 0.4, -10.7, -6.2, 0.4, -12.8, 2.8, 0.4, -9.8, 4.6, 0.4, -10.7, 2.8, 0.4, -10.7, -5.9, 0.4, -14.3, -5.9, 0.4, -16.7, -8, 0.4, -16.7, -6.2, 0.4, -12.8, -8, 0.4, -7.1, -5.9, 0.4, -7.1, -5.9, 0.4, -9.8, -6.2, 0.4, -12.8, -8, 0.4, -16.7, -5.9, 0.4, -14.3, -6.2, 0.4, -12.8, 2.8, 0.4, -13.1, 2.8, 0.4, -14.3, -5.9, 0.4, -9.8, 2.8, 0.4, -9.8, 2.8, 0.4, -10.7, -5.9, 0.4, -10.7, 2.8, 0.4, -13.1, 49.3, 0.4, -13.1, 49.3, 0.4, -14.3, 2.8, 0.4, -14.3, 2.8, 0.4, -14.3, 49.3, 0.4, -14.3, 49.3, 0.4, -16.7, 2.8, 0.4, -16.7, 2.8, 0.4, -13.1, 2.8, 0.4, -10.7, 4.6, 0.4, -10.7, 2.8, 0.4, -13.1, 4.6, 0.4, -10.7, 6.7, 0.4, -10.4, 49.3, 0.4, -13.1, 6.7, 0.4, -10.4, 6.4, 0.4, -1.1, 49.3, 0.4, -1.1, 49.3, 0.4, -13.1, 3.4, 0.4, -4.4, 3.4, 0.4, -1.1, 4.6, 0.4, -1.1, 4.3, 0.4, -6.2, -8, 0.4, -4.7, -5.9, 0.4, -4.7, 4.3, 0.4, -6.2, -18.5, 0.4, -6.2, 1, 0.4, -4.7, 3.4, 0.4, -4.4, 4.3, 0.4, -6.2, -0.199997, 0.4, -4.4, -0.499996, 0.4, 4.9, 1, 0.4, 4.9, 1, 0.4, -4.7, -17, 0.4, -4.7, -8, 0.4, -4.7, -18.5, 0.4, -6.2, -20.3, 0.4, -6.2, -2.3, 0.4, -4.7, -0.199997, 0.4, -4.4, 1, 0.4, -4.7, 4.3, 0.4, -6.2, -49.4, 0.4, -4.7, -17, 0.4, -4.7, -20.3, 0.4, -6.2, -49.4, 0.4, -6.2, -3.8, 0.4, -4.4, -4.1, 0.4, 4.9, -2.3, 0.4, 4.9, -2.3, 0.4, -4.7, -5.9, 0.4, -4.7, -3.8, 0.4, -4.4, -2.3, 0.4, -4.7, 4.3, 0.4, -6.2, -49.4, 0.4, -2.3, -17, 0.4, -2.3, -17, 0.4, -4.7, -49.4, 0.4, -4.7, -5.9, 0.4, -4.7, -8, 0.4, -4.7, -8, 0.4, -2.3, -6.2, 0.4, -1.1, -17, 0.4, -2.3, -49.4, 0.4, -2.3, -49.4, 0.4, -1.1, -17, 0.4, -1.1, -8, 0.4, -1.1, -6.2, 0.4, -1.1, -8, 0.4, -2.3, -17, 0.4, -1.1, -8, 0.4, -1.1, -8, 0.4, -2.3, -17, 0.4, -2.3, -49.4, 0.4, 1.3, -17, 0.4, 1.3, -17, 0.4, -1.1, -49.4, 0.4, -1.1, -6.2, 0.4, -1.1, -8, 0.4, -1.1, -8, 0.4, 1.3, -8, 0.4, 2.2, -8, 0.4, 4.9, -5.9, 0.4, 4.9, -8, 0.4, 2.2, -5.9, 0.4, 4.9, -6.2, 0.4, -1.1, -8, 0.4, 1.3, -17, 0.4, 1.3, -49.4, 0.4, 1.3, -49.4, 0.4, 2.2, -17, 0.4, 2.2, -17, 0.4, 2.2, -8, 0.4, 2.2, -8, 0.4, 1.3, -17, 0.4, 1.3, 4.6, 0.4, -1.1, 3.4, 0.4, -1.1, 3.4, 0.4, 4.3, 6.4, 0.4, -1.1, 4.6, 0.4, -1.1, 3.4, 0.4, 4.3, 49.3, 0.4, 4.9, 49.3, 0.4, -1.1, 6.4, 0.4, -1.1, 3.4, 0.4, 4.3, 2.8, 0.4, 4.9, 49.3, 0.4, 4.9, 3.4, 0.4, 4.3, -49.4, 0.4, 4.9, -17, 0.4, 4.9, -17, 0.4, 2.2, -49.4, 0.4, 2.2, -17, 0.4, 4.9, -49.4, 0.4, 4.9, -49.4, 0.4, 6.1, -12.8, 0.4, 6.1, 49.3, 0.4, 6.1, 49.3, 0.4, 4.9, 2.8, 0.4, 4.9, -0.799999, 0.4, 6.1, -8, 0.4, 4.9, -17, 0.4, 4.9, -12.8, 0.4, 6.1, -5.9, 0.4, 4.9, -8, 0.4, 4.9, -12.8, 0.4, 6.1, -0.799999, 0.4, 6.1, 2.8, 0.4, 4.9, 1, 0.4, 4.9, -0.799999, 0.4, 6.1, -4.1, 0.4, 4.9, -5.9, 0.4, 4.9, -0.799999, 0.4, 6.1, -2.3, 0.4, 4.9, -4.1, 0.4, 4.9, -0.799999, 0.4, 6.1, -0.499996, 0.4, 4.9, -2.3, 0.4, 4.9, -0.799999, 0.4, 6.1, 1, 0.4, 4.9, -0.499996, 0.4, 4.9, -0.799999, 0.4, 6.1, -49.4, 0.4, 12.7, -12.8, 0.4, 12.7, -12.8, 0.4, 6.1, -49.4, 0.4, 6.1, -0.799999, 0.4, 12.7, 49.3, 0.4, 12.7, 49.3, 0.4, 6.1, -0.799999, 0.4, 6.1, -49.4, 0.4, 40, -49.4, 0.4, 49.3, -43.4, 0.4, 49.3, 43, 0.4, 49.3, 49.3, 0.4, 49.3, 49.3, 0.4, 40, -49.4, 0.4, 40, -43.4, 0.4, 49.3, -37.1, 0.4, 49.3, 36.7, 0.4, 49.3, 43, 0.4, 49.3, 49.3, 0.4, 40, -49.4, 0.4, 40, -37.1, 0.4, 49.3, -31.1, 0.4, 49.3, 30.4, 0.4, 49.3, 36.7, 0.4, 49.3, 49.3, 0.4, 40, -49.4, 0.4, 31, -49.4, 0.4, 40, -31.1, 0.4, 49.3, -24.8, 0.4, 49.3, 30.4, 0.4, 49.3, 49.3, 0.4, 40, 49.3, 0.4, 31, 24.4, 0.4, 49.3, -0.799999, 0.4, 12.7, 12.1, 0.4, 49.3, 18.1, 0.4, 49.3, 49.3, 0.4, 21.7, 49.3, 0.4, 12.7, -0.799999, 0.4, 12.7, -6.5, 0.4, 49.3, -0.199997, 0.4, 49.3, -49.4, 0.4, 31, -24.8, 0.4, 49.3, -18.8, 0.4, 49.3, 18.1, 0.4, 49.3, 24.4, 0.4, 49.3, 49.3, 0.4, 31, 49.3, 0.4, 21.7, -12.8, 0.4, 12.7, -49.4, 0.4, 12.7, -49.4, 0.4, 21.7, -12.8, 0.4, 12.7, -49.4, 0.4, 21.7, -49.4, 0.4, 31, -18.8, 0.4, 49.3, -12.5, 0.4, 49.3, -0.799999, 0.4, 12.7, -0.199997, 0.4, 49.3, 5.8, 0.4, 49.3, -0.799999, 0.4, 12.7, 5.8, 0.4, 49.3, 12.1, 0.4, 49.3, -12.8, 0.4, 12.7, -12.5, 0.4, 49.3, -6.5, 0.4, 49.3, -0.799999, 0.4, 12.7 )
+polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 7, 6, 8 ), PoolIntArray( 8, 6, 9 ), PoolIntArray( 12, 11, 10 ), PoolIntArray( 16, 15, 13 ), PoolIntArray( 13, 15, 14 ), PoolIntArray( 18, 17, 19 ), PoolIntArray( 19, 17, 20 ), PoolIntArray( 22, 21, 23 ), PoolIntArray( 23, 21, 24 ), PoolIntArray( 25, 27, 26 ), PoolIntArray( 30, 29, 28 ), PoolIntArray( 33, 32, 34 ), PoolIntArray( 34, 32, 31 ), PoolIntArray( 38, 37, 39 ), PoolIntArray( 39, 37, 35 ), PoolIntArray( 35, 37, 36 ), PoolIntArray( 42, 41, 40 ), PoolIntArray( 44, 43, 45 ), PoolIntArray( 45, 43, 47 ), PoolIntArray( 45, 47, 46 ), PoolIntArray( 50, 49, 48 ), PoolIntArray( 54, 53, 51 ), PoolIntArray( 51, 53, 52 ), PoolIntArray( 57, 56, 55 ), PoolIntArray( 59, 58, 60 ), PoolIntArray( 60, 58, 61 ), PoolIntArray( 63, 62, 64 ), PoolIntArray( 64, 62, 65 ), PoolIntArray( 69, 68, 66 ), PoolIntArray( 66, 68, 67 ), PoolIntArray( 72, 71, 70 ), PoolIntArray( 74, 73, 75 ), PoolIntArray( 75, 73, 76 ), PoolIntArray( 78, 77, 79 ), PoolIntArray( 79, 77, 80 ), PoolIntArray( 83, 82, 81 ), PoolIntArray( 86, 85, 84 ), PoolIntArray( 89, 88, 87 ), PoolIntArray( 91, 90, 92 ), PoolIntArray( 92, 90, 93 ), PoolIntArray( 96, 95, 94 ), PoolIntArray( 99, 98, 100 ), PoolIntArray( 100, 98, 97 ), PoolIntArray( 103, 102, 101 ), PoolIntArray( 106, 105, 104 ), PoolIntArray( 109, 108, 107 ), PoolIntArray( 111, 110, 112 ), PoolIntArray( 112, 110, 113 ), PoolIntArray( 115, 114, 116 ), PoolIntArray( 116, 114, 117 ), PoolIntArray( 120, 119, 118 ), PoolIntArray( 123, 122, 121 ), PoolIntArray( 125, 124, 126 ), PoolIntArray( 126, 124, 127 ), PoolIntArray( 130, 129, 128 ), PoolIntArray( 133, 132, 131 ), PoolIntArray( 135, 134, 136 ), PoolIntArray( 136, 134, 137 ), PoolIntArray( 139, 138, 140 ), PoolIntArray( 140, 138, 141 ), PoolIntArray( 141, 138, 142 ), PoolIntArray( 146, 145, 143 ), PoolIntArray( 143, 145, 144 ), PoolIntArray( 150, 149, 147 ), PoolIntArray( 147, 149, 148 ), PoolIntArray( 154, 153, 151 ), PoolIntArray( 151, 153, 152 ), PoolIntArray( 158, 157, 155 ), PoolIntArray( 155, 157, 156 ), PoolIntArray( 161, 160, 159 ), PoolIntArray( 163, 162, 164 ), PoolIntArray( 164, 162, 165 ), PoolIntArray( 167, 166, 168 ), PoolIntArray( 168, 166, 169 ), PoolIntArray( 171, 170, 172 ), PoolIntArray( 172, 170, 173 ), PoolIntArray( 175, 174, 176 ), PoolIntArray( 176, 174, 177 ), PoolIntArray( 180, 179, 178 ), PoolIntArray( 182, 181, 183 ), PoolIntArray( 183, 181, 184 ), PoolIntArray( 188, 187, 185 ), PoolIntArray( 185, 187, 186 ), PoolIntArray( 190, 189, 191 ), PoolIntArray( 191, 189, 192 ), PoolIntArray( 196, 195, 193 ), PoolIntArray( 193, 195, 194 ), PoolIntArray( 198, 197, 199 ), PoolIntArray( 199, 197, 200 ), PoolIntArray( 202, 201, 203 ), PoolIntArray( 203, 201, 204 ), PoolIntArray( 208, 207, 205 ), PoolIntArray( 205, 207, 206 ), PoolIntArray( 210, 209, 211 ), PoolIntArray( 211, 209, 212 ), PoolIntArray( 216, 215, 213 ), PoolIntArray( 213, 215, 214 ), PoolIntArray( 219, 218, 217 ), PoolIntArray( 223, 222, 220 ), PoolIntArray( 220, 222, 221 ), PoolIntArray( 227, 226, 224 ), PoolIntArray( 224, 226, 225 ), PoolIntArray( 230, 229, 228 ), PoolIntArray( 233, 232, 231 ), PoolIntArray( 237, 236, 234 ), PoolIntArray( 234, 236, 235 ), PoolIntArray( 241, 240, 238 ), PoolIntArray( 238, 240, 239 ), PoolIntArray( 245, 244, 242 ), PoolIntArray( 242, 244, 243 ), PoolIntArray( 248, 247, 246 ), PoolIntArray( 251, 250, 249 ), PoolIntArray( 253, 252, 254 ), PoolIntArray( 254, 252, 255 ), PoolIntArray( 258, 257, 256 ), PoolIntArray( 262, 261, 259 ), PoolIntArray( 259, 261, 260 ), PoolIntArray( 264, 263, 265 ), PoolIntArray( 265, 263, 266 ), PoolIntArray( 268, 267, 269 ), PoolIntArray( 269, 267, 270 ), PoolIntArray( 273, 272, 271 ), PoolIntArray( 275, 274, 276 ), PoolIntArray( 276, 274, 277 ), PoolIntArray( 280, 279, 278 ), PoolIntArray( 283, 282, 281 ), PoolIntArray( 286, 285, 284 ), PoolIntArray( 289, 288, 287 ), PoolIntArray( 292, 291, 290 ), PoolIntArray( 296, 295, 293 ), PoolIntArray( 293, 295, 294 ), PoolIntArray( 300, 299, 297 ), PoolIntArray( 297, 299, 298 ), PoolIntArray( 303, 302, 301 ), PoolIntArray( 306, 305, 304 ), PoolIntArray( 307, 309, 308 ), PoolIntArray( 312, 311, 310 ), PoolIntArray( 315, 314, 313 ), PoolIntArray( 318, 317, 316 ), PoolIntArray( 321, 320, 322 ), PoolIntArray( 322, 320, 319 ), PoolIntArray( 323, 326, 324 ), PoolIntArray( 324, 326, 325 ), PoolIntArray( 328, 327, 329 ), PoolIntArray( 329, 327, 330 ), PoolIntArray( 330, 327, 331 ), PoolIntArray( 334, 333, 332 ), PoolIntArray( 337, 336, 335 ), PoolIntArray( 339, 338, 340 ), PoolIntArray( 340, 338, 341 ), PoolIntArray( 344, 343, 342 ), PoolIntArray( 349, 348, 345 ), PoolIntArray( 345, 348, 347 ), PoolIntArray( 345, 347, 346 ), PoolIntArray( 352, 351, 350 ), PoolIntArray( 355, 354, 353 ), PoolIntArray( 357, 356, 358 ), PoolIntArray( 358, 356, 359 ) ]
+sample_partition_type/sample_partition_type = 1
+geometry/parsed_geometry_type = 1
+geometry/collision_mask = 2
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 50, 0.5, 50 )
@@ -194,7 +202,12 @@ tracks/3/keys = {
 [node name="Supermarket" type="Spatial"]
 script = ExtResource( 4 )
 
-[node name="Floor" type="StaticBody" parent="."]
+[node name="Navigation" type="Navigation" parent="."]
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+navmesh = SubResource( 6 )
+
+[node name="Floor" type="StaticBody" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
 collision_layer = 2
 collision_mask = 0
@@ -203,12 +216,162 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape" type="CollisionShape" parent="Floor"]
+[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Floor"]
 shape = SubResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Floor"]
+[node name="MeshInstance" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Floor"]
 mesh = SubResource( 2 )
 material/0 = null
+
+[node name="Shelves" type="Spatial" parent="Navigation/NavigationMeshInstance"]
+
+[node name="S1" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.5, 0, 2 )
+
+[node name="S8" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5, 0, 2 )
+
+[node name="S2" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 0, 2 )
+can_be_restock = false
+
+[node name="S3" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1.99469 )
+
+[node name="S6" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.99469 )
+
+[node name="S7" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1.99469 )
+
+[node name="S19" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.5, 0, -4 )
+items_strs = "sugar,coffee,box_of_cereal"
+
+[node name="S20" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -7.99469 )
+items_strs = "sugar,coffee,box_of_cereal"
+
+[node name="S4" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.49734, 0, -11.9973 )
+items_strs = "snacks_01,instant_noodle,sugar"
+
+[node name="S9" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.49734, 0, -15.4973 )
+items_strs = "snacks_01,instant_noodle,sugar"
+
+[node name="S10" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.49734, 0, -8.49734 )
+items_strs = "snacks_01,instant_noodle,sugar"
+can_be_restock = false
+
+[node name="S11" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.497345, 0, -8.49734 )
+items_strs = "snacks_01,instant_noodle,sugar"
+
+[node name="S12" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.497345, 0, -11.9973 )
+items_strs = "snacks_01,instant_noodle,sugar"
+
+[node name="S13" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.497345, 0, -15.4973 )
+items_strs = "snacks_01,instant_noodle,sugar"
+
+[node name="S5" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.4973, 0, 0.00265503 )
+items_strs = "soda_01,soda_02,snacks_02"
+
+[node name="S14" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.4973, 0, -3.49734 )
+items_strs = "soda_01,soda_02,snacks_02"
+
+[node name="S15" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.4973, 0, 3.50266 )
+items_strs = "soda_01,soda_02,snacks_02"
+can_be_restock = false
+
+[node name="S16" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.5027, 0, 3.50266 )
+items_strs = "soda_01,soda_02,snacks_02"
+
+[node name="S17" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.5027, 0, 0.00265598 )
+items_strs = "soda_01,soda_02,snacks_02"
+
+[node name="S18" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.5027, 0, -3.49734 )
+items_strs = "soda_01,soda_02,snacks_02"
+
+[node name="ShelveFruit" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -12 )
+
+[node name="ShelveFruit2" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -9 )
+
+[node name="ShelveFruit3" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, 0, -9 )
+
+[node name="ShelveFruit4" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, 0, -12 )
+
+[node name="ShelveFruit5" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -15 )
+
+[node name="ShelveFruit6" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, 0, -15 )
+
+[node name="ShelveFruit7" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -12 )
+
+[node name="ShelveFruit8" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -9 )
+
+[node name="ShelveFruit9" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14, 0, -9 )
+
+[node name="ShelveFruit10" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14, 0, -12 )
+
+[node name="ShelveFruit11" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -15 )
+
+[node name="ShelveFruit12" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14, 0, -15 )
+
+[node name="Fridge" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 11 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -19.8061, 0, -9.08745 )
+
+[node name="Fridge2" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 11 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -19.8061, 0, -13.0874 )
+
+[node name="Fridge3" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 11 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -19.8061, 0, -17.0874 )
+
+[node name="Fridge4" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 11 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.8061, 0, -20 )
+
+[node name="Fridge5" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 11 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.8061, 0, -20 )
+
+[node name="Fridge6" parent="Navigation/NavigationMeshInstance/Shelves" instance=ExtResource( 11 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.80607, 0, -20 )
+
+[node name="Cashiers" type="Spatial" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18804, 0.0802457, 6.11192 )
+
+[node name="Cashier" parent="Navigation/NavigationMeshInstance/Cashiers" instance=ExtResource( 22 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.48205, -0.0802457, 0.866562 )
+
+[node name="Cashier2" parent="Navigation/NavigationMeshInstance/Cashiers" instance=ExtResource( 22 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.48205, -0.0802457, 0.866562 )
+with_cashier = false
+
+[node name="Cashier3" parent="Navigation/NavigationMeshInstance/Cashiers" instance=ExtResource( 22 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -12.482, -0.0802457, 0.866562 )
+
+[node name="Cashier4" parent="Navigation/NavigationMeshInstance/Cashiers" instance=ExtResource( 22 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.48205, -0.0802457, 0.866562 )
+with_cashier = false
 
 [node name="Jingle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
@@ -224,155 +387,10 @@ anims/RESET = SubResource( 3 )
 anims/pa-closing = SubResource( 4 )
 anims/pa-new_promotion = SubResource( 5 )
 
-[node name="Shelves" type="Spatial" parent="."]
-
-[node name="S1" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.5, 0, 2 )
-
-[node name="S8" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5, 0, 2 )
-
-[node name="S2" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 0, 2 )
-can_be_restock = false
-
-[node name="S3" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1.99469 )
-
-[node name="S6" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.99469 )
-
-[node name="S7" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1.99469 )
-
-[node name="S19" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.5, 0, -4 )
-items_strs = "sugar,coffee,box_of_cereal"
-
-[node name="S20" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -7.99469 )
-items_strs = "sugar,coffee,box_of_cereal"
-
-[node name="S4" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.49734, 0, -11.9973 )
-items_strs = "snacks_01,instant_noodle,sugar"
-
-[node name="S9" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.49734, 0, -15.4973 )
-items_strs = "snacks_01,instant_noodle,sugar"
-
-[node name="S10" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.49734, 0, -8.49734 )
-items_strs = "snacks_01,instant_noodle,sugar"
-can_be_restock = false
-
-[node name="S11" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.497345, 0, -8.49734 )
-items_strs = "snacks_01,instant_noodle,sugar"
-
-[node name="S12" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.497345, 0, -11.9973 )
-items_strs = "snacks_01,instant_noodle,sugar"
-
-[node name="S13" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.497345, 0, -15.4973 )
-items_strs = "snacks_01,instant_noodle,sugar"
-
-[node name="S5" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.4973, 0, 0.00265503 )
-items_strs = "soda_01,soda_02,snacks_02"
-
-[node name="S14" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.4973, 0, -3.49734 )
-items_strs = "soda_01,soda_02,snacks_02"
-
-[node name="S15" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.4973, 0, 3.50266 )
-items_strs = "soda_01,soda_02,snacks_02"
-can_be_restock = false
-
-[node name="S16" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.5027, 0, 3.50266 )
-items_strs = "soda_01,soda_02,snacks_02"
-
-[node name="S17" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.5027, 0, 0.00265598 )
-items_strs = "soda_01,soda_02,snacks_02"
-
-[node name="S18" parent="Shelves" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.5027, 0, -3.49734 )
-items_strs = "soda_01,soda_02,snacks_02"
-
-[node name="ShelveFruit" parent="Shelves" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -12 )
-
-[node name="ShelveFruit2" parent="Shelves" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -9 )
-
-[node name="ShelveFruit3" parent="Shelves" instance=ExtResource( 5 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, 0, -9 )
-
-[node name="ShelveFruit4" parent="Shelves" instance=ExtResource( 5 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, 0, -12 )
-
-[node name="ShelveFruit5" parent="Shelves" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -15 )
-
-[node name="ShelveFruit6" parent="Shelves" instance=ExtResource( 5 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, 0, -15 )
-
-[node name="ShelveFruit7" parent="Shelves" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -12 )
-
-[node name="ShelveFruit8" parent="Shelves" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -9 )
-
-[node name="ShelveFruit9" parent="Shelves" instance=ExtResource( 5 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14, 0, -9 )
-
-[node name="ShelveFruit10" parent="Shelves" instance=ExtResource( 5 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14, 0, -12 )
-
-[node name="ShelveFruit11" parent="Shelves" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -15 )
-
-[node name="ShelveFruit12" parent="Shelves" instance=ExtResource( 5 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14, 0, -15 )
-
-[node name="Fridge" parent="Shelves" instance=ExtResource( 11 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -19.8061, 0, -9.08745 )
-
-[node name="Fridge2" parent="Shelves" instance=ExtResource( 11 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -19.8061, 0, -13.0874 )
-
-[node name="Fridge3" parent="Shelves" instance=ExtResource( 11 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -19.8061, 0, -17.0874 )
-
-[node name="Fridge4" parent="Shelves" instance=ExtResource( 11 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.8061, 0, -20 )
-
-[node name="Fridge5" parent="Shelves" instance=ExtResource( 11 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.8061, 0, -20 )
-
-[node name="Fridge6" parent="Shelves" instance=ExtResource( 11 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.80607, 0, -20 )
-
 [node name="Goods" type="Spatial" parent="."]
 
 [node name="Clock" parent="." instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21, 4.15311, -6.32999 )
-
-[node name="Cashier" parent="." instance=ExtResource( 22 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.29401, 0, 6.97848 )
-
-[node name="Cashier2" parent="." instance=ExtResource( 22 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.29401, 0, 6.97848 )
-
-[node name="Cashier3" parent="." instance=ExtResource( 22 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11.294, 0, 6.97848 )
-
-[node name="Cashier4" parent="." instance=ExtResource( 22 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.29401, 0, 6.97848 )
 
 [node name="Promotion" type="Timer" parent="."]
 
@@ -433,10 +451,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, -12 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 0, -1.5 )
 
 [node name="SupermarketModel" parent="." instance=ExtResource( 10 )]
+visible = false
 
-[connection signal="player_checkout" from="Cashier" to="." method="_on_Cashier_player_checkout"]
-[connection signal="player_checkout" from="Cashier2" to="." method="_on_Cashier_player_checkout"]
-[connection signal="player_checkout" from="Cashier3" to="." method="_on_Cashier_player_checkout"]
-[connection signal="player_checkout" from="Cashier4" to="." method="_on_Cashier_player_checkout"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 13 )
+
+[connection signal="player_checkout" from="Navigation/NavigationMeshInstance/Cashiers/Cashier" to="." method="_on_Cashier_player_checkout"]
+[connection signal="player_checkout" from="Navigation/NavigationMeshInstance/Cashiers/Cashier2" to="." method="_on_Cashier_player_checkout"]
+[connection signal="player_checkout" from="Navigation/NavigationMeshInstance/Cashiers/Cashier3" to="." method="_on_Cashier_player_checkout"]
+[connection signal="player_checkout" from="Navigation/NavigationMeshInstance/Cashiers/Cashier4" to="." method="_on_Cashier_player_checkout"]
 [connection signal="timeout" from="Promotion" to="." method="_on_Promotion_timeout"]
 [connection signal="timeout" from="End" to="." method="_on_End_timeout"]
