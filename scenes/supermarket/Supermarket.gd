@@ -48,7 +48,8 @@ func generate(level: Dictionary) -> Array:
 	_reset_supermarket()
 	_generate_supermarket()
 	var new_list = _generate_goods(level.list)
-	_generate_goods(_random_items_list(level))
+	if level_delay > 0:
+		_generate_goods(_random_items_list(level))
 	emit_signal("supermarket_generated")
 	_reset_cashiers()
 	_reset_clocks()
@@ -81,21 +82,23 @@ func random_starting_position() -> Vector3:
 	return player_spawn.get_child(randi() % player_spawn.get_child_count()).global_transform.origin
 
 func _random_items_list(level: Dictionary) -> Array:
-	var amount : int = int(max(5, 40 - Data.current_level * 10))
+	var amount = level.sup
+	var min_amount = int(max(0.0, float(amount - randi() % 8)))
+	var diff = amount - min_amount
 	return [
-		["can_of_soup", randi() % amount],
-		["box_of_cereal", randi() % amount],
-		["meat", randi() % amount],
-		["soda_01", randi() % amount],
-		["soda_02", randi() % amount],
-		["toilet_paper", randi() % amount],
-		["coffee", randi() % amount],
-		["snacks_01", randi() % amount],
-		["snacks_02", randi() % amount],
-		["instant_noodle", randi() % amount],
-		["fruits", randi() % amount],
-		["vegetables", randi() % amount],
-		["sugar", randi() % amount]
+		["can_of_soup", randi() % diff + min_amount],
+		["box_of_cereal", randi() % diff + min_amount],
+		["meat", randi() % diff + min_amount],
+		["soda_01", randi() % diff + min_amount],
+		["soda_02", randi() % diff + min_amount],
+		["toilet_paper", randi() % diff + min_amount],
+		["coffee", randi() % diff + min_amount],
+		["snacks_01", randi() % diff + min_amount],
+		["snacks_02", randi() % diff + min_amount],
+		["instant_noodle", randi() % diff + min_amount],
+		["fruits", randi() % diff + min_amount],
+		["vegetables", randi() % diff + min_amount],
+		["sugar", randi() % diff + min_amount]
 	]
 
 func _reset_supermarket() -> void:

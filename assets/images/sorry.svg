@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="256"
+   height="256"
+   viewBox="0 0 67.733331 67.733331"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)"
+   sodipodi:docname="sorry.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="117.46026"
+     inkscape:cy="135.09921"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="true"
+     units="px"
+     inkscape:window-width="1343"
+     inkscape:window-height="908"
+     inkscape:window-x="123"
+     inkscape:window-y="26"
+     inkscape:window-maximized="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid1402" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:0.823442;stroke-width:8.46317;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.5007;paint-order:stroke markers fill"
+       id="rect892"
+       width="64.822914"
+       height="64.822914"
+       x="1.4552084"
+       y="1.4552084" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:11.9944px;line-height:1;font-family:JuliaMono;-inkscape-font-specification:'JuliaMono, Bold';fill:#ffffff;fill-opacity:0.823442;stroke-width:0.264583"
+       x="5.104157"
+       y="20.217039"
+       id="text880"><tspan
+         sodipodi:role="line"
+         id="tspan878"
+         x="5.104157"
+         y="20.217039"
+         style="font-size:11.9944px;fill:#ffffff;fill-opacity:0.823442;stroke-width:0.264583">SORRY</tspan><tspan
+         sodipodi:role="line"
+         x="5.104157"
+         y="32.211441"
+         style="font-size:11.9944px;fill:#ffffff;fill-opacity:0.823442;stroke-width:0.264583"
+         id="tspan882">I DIDN'T</tspan><tspan
+         sodipodi:role="line"
+         x="5.104157"
+         y="44.205841"
+         style="font-size:11.9944px;fill:#ffffff;fill-opacity:0.823442;stroke-width:0.264583"
+         id="tspan884">FINISH</tspan><tspan
+         sodipodi:role="line"
+         x="5.104157"
+         y="56.200241"
+         style="font-size:11.9944px;fill:#ffffff;fill-opacity:0.823442;stroke-width:0.264583"
+         id="tspan886">THE GAME</tspan></text>
+  </g>
+</svg>

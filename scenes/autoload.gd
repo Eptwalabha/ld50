@@ -120,9 +120,10 @@ const LEVELS = [
 			["toilet_paper", 1]
 		],
 		"music": true,
-		"time": 300,
+		"time": 120,
 		"promo_delay": 30,
-		"disturbance": 0
+		"disturbance": 0,
+		"sup": 30
 	},
 	{
 		"list": [
@@ -135,9 +136,10 @@ const LEVELS = [
 			["snacks_01", 1],
 		],
 		"music": true,
-		"time": 300,
+		"time": 100,
 		"promo_delay": 30,
-		"disturbance": 0
+		"disturbance": 0,
+		"sup": 20
 	},
 	{
 		"list": [
@@ -152,9 +154,10 @@ const LEVELS = [
 			["snacks_02", 1],
 		],
 		"music": true,
-		"time": 250,
+		"time": 90,
 		"promo_delay": 20,
-		"disturbance": 1
+		"disturbance": 1,
+		"sup": 12
 	},
 	{
 		"list": [
@@ -169,9 +172,10 @@ const LEVELS = [
 			["snacks_02", 2],
 		],
 		"music": true,
-		"time": 200,
+		"time": 80,
 		"promo_delay": 15,
-		"disturbance": 2
+		"disturbance": 2,
+		"sup": 8
 	},
 	{
 		"list": [
@@ -185,20 +189,22 @@ const LEVELS = [
 			["snacks_02", 3],
 		],
 		"music": true,
-		"time": 200,
+		"time": 60,
 		"promo_delay": 15,
-		"disturbance": 3
+		"disturbance": 3,
+		"sup": 4
 	},
 	{
 		"list": [],
 		"time": 0,
-		"music": true,
+		"music": false,
 		"promo_delay": 15,
 		"disturbance": 4
 	}
 ]
 
 var current_level = 0
+
 
 func _ready() -> void:
 	randomize()
