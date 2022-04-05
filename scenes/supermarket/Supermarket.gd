@@ -3,7 +3,7 @@ class_name Supermarket extends Spatial
 signal supermarket_generated
 signal player_checkout
 signal level_timed_out
-
+signal ending_reached
 signal announce_dialog_started(key)
 signal announce_dialog_ended
 
@@ -84,7 +84,7 @@ func random_starting_position() -> Vector3:
 func _random_items_list(level: Dictionary) -> Array:
 	var amount = level.sup
 	var min_amount = int(max(0.0, float(amount - randi() % 8)))
-	var diff = amount - min_amount
+	var diff = int(max(1.0, float(amount - min_amount)))
 	return [
 		["can_of_soup", randi() % diff + min_amount],
 		["box_of_cereal", randi() % diff + min_amount],
@@ -196,3 +196,9 @@ func _on_GroceryList_all_items_picked_up() -> void:
 func _on_StartLevel_timeout() -> void:
 	new_promotion()
 	promotion_timer.start(promotion_delay)
+
+func _on_Ending_body_entered(body: Node) -> void:
+	$Ending/EndTrigger.start(10.0)
+
+func _on_EndTrigger_timeout() -> void:
+	emit_signal("ending_reached")

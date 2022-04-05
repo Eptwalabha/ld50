@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://assets/sound/supermarket/closing-announcement.mp3" type="AudioStream" id=1]
 [ext_resource path="res://assets/images/groceries/sorry.svg" type="Texture" id=2]
@@ -238,6 +238,9 @@ resource_local_to_scene = true
 flags_unshaded = true
 albedo_texture = SubResource( 7 )
 
+[sub_resource type="BoxShape" id=17]
+extents = Vector3( 6, 1.75, 2.75 )
+
 [node name="Supermarket" type="Spatial"]
 script = ExtResource( 4 )
 
@@ -396,7 +399,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 10.5, 5 )
 
 [node name="Building" type="Spatial" parent="Navigation/NavigationMeshInstance"]
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="Floor" type="StaticBody" parent="Navigation/NavigationMeshInstance/Building"]
@@ -656,6 +660,14 @@ environment = ExtResource( 13 )
 wait_time = 14.0
 one_shot = true
 
+[node name="Ending" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28.75 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ending"]
+shape = SubResource( 17 )
+
+[node name="EndTrigger" type="Timer" parent="Ending"]
+
 [connection signal="player_checkout" from="Navigation/NavigationMeshInstance/Cashiers/Cashier" to="." method="_on_Cashier_player_checkout"]
 [connection signal="player_checkout" from="Navigation/NavigationMeshInstance/Cashiers/Cashier2" to="." method="_on_Cashier_player_checkout"]
 [connection signal="player_checkout" from="Navigation/NavigationMeshInstance/Cashiers/Cashier3" to="." method="_on_Cashier_player_checkout"]
@@ -663,6 +675,8 @@ one_shot = true
 [connection signal="timeout" from="Promotion" to="." method="_on_Promotion_timeout"]
 [connection signal="timeout" from="End" to="." method="_on_End_timeout"]
 [connection signal="timeout" from="StartLevel" to="." method="_on_StartLevel_timeout"]
+[connection signal="body_entered" from="Ending" to="." method="_on_Ending_body_entered"]
+[connection signal="timeout" from="Ending/EndTrigger" to="." method="_on_EndTrigger_timeout"]
 
 [editable path="Ad/Big1"]
 [editable path="Ad/Big2"]

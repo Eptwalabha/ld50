@@ -140,3 +140,7 @@ func _on_UIIntro_next_level_requested() -> void:
 
 func _on_Supermarket_level_timed_out() -> void:
 	replay_level()
+
+
+func _on_Supermarket_ending_reached() -> void:
+	next_level()

@@ -205,7 +205,6 @@ const LEVELS = [
 
 var current_level = 0
 
-
 func _ready() -> void:
 	randomize()
 	current_config = load_config()
