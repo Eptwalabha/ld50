@@ -143,8 +143,8 @@ func _get_available_positions(item_type: String) -> Array:
 	return available_positions
 
 func start_level() -> void:
+	ad.turn(false)
 	if level_delay > 0:
-		ad.turn(false)
 		_start_clocks(level_delay)
 		anim.play("pa-closing")
 		start_timer.start()
