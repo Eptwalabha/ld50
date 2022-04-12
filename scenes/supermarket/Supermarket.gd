@@ -72,11 +72,15 @@ func _reset_clocks() -> void:
 	for clock in clocks.get_children():
 		if clock is Clock:
 			clock.reset(false)
+		if clock is DigitalClock:
+			clock.reset(false)
 
 func _start_clocks(time: float) -> void:
 	for clock in clocks.get_children():
 		if clock is Clock:
 			clock.start(time)
+		if clock is DigitalClock:
+			clock.start(time - 1.0)
 
 func random_starting_position() -> Vector3:
 	return player_spawn.get_child(randi() % player_spawn.get_child_count()).global_transform.origin
@@ -162,6 +166,8 @@ func give_time_bonus() -> void:
 	for clock in clocks.get_children():
 		if clock is Clock:
 			clock.acc = max(0.0, clock.acc - Data.TIME_BONUS)
+		if clock is DigitalClock:
+			clock.add_time_bonus(Data.TIME_BONUS)
 
 func new_promotion() -> void:
 	if !ad.on:

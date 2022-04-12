@@ -7,7 +7,6 @@
 [ext_resource path="res://scenes/supermarket/shelves/variation/ShelveFruit.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/material/floor-tile.tres" type="Material" id=6]
 [ext_resource path="res://assets/sound/supermarket/announcement-new-promotion.mp3" type="AudioStream" id=7]
-[ext_resource path="res://scenes/supermarket/prop/Clock.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/sound/supermarket/supermarket.mp3" type="AudioStream" id=9]
 [ext_resource path="res://scenes/supermarket/shelves/variation/ShelvesDouble8.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/supermarket/shelves/variation/Fridge.tscn" type="PackedScene" id=11]
@@ -17,6 +16,7 @@
 [ext_resource path="res://assets/model/supermarket/building/WallModel.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/model/supermarket/building/PillarModel.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/images/sorry2.svg" type="Texture" id=17]
+[ext_resource path="res://scenes/supermarket/prop/DigitalClock.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/supermarket/Cashier.tscn" type="PackedScene" id=22]
 
 [sub_resource type="NavigationMesh" id=6]
@@ -400,9 +400,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5, -1.5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 10.5, 5 )
 
 [node name="Building" type="Spatial" parent="Navigation/NavigationMeshInstance"]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Floor" type="StaticBody" parent="Navigation/NavigationMeshInstance/Building"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
@@ -417,6 +414,9 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="Walls" type="Spatial" parent="Navigation/NavigationMeshInstance/Building"]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="WallModel" parent="Navigation/NavigationMeshInstance/Building/Walls" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2064, 0, 0.5 )
@@ -428,13 +428,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -11.5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 12.5 )
 
 [node name="WallModel6" parent="Navigation/NavigationMeshInstance/Building/Walls" instance=ExtResource( 15 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 18, 0, 0.5 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 18, 0, 0 )
 
 [node name="WallModel7" parent="Navigation/NavigationMeshInstance/Building/Walls" instance=ExtResource( 15 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17.74, 0, 12.5 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17.74, 0, 12 )
 
 [node name="WallModel8" parent="Navigation/NavigationMeshInstance/Building/Walls" instance=ExtResource( 15 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 18, 0, -11.5 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 18, 0, -12 )
 
 [node name="WallModel4" parent="Navigation/NavigationMeshInstance/Building/Walls" instance=ExtResource( 15 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -18 )
@@ -510,6 +510,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -11 )
 
 [node name="Roof" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Building"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 12.75, 0 )
+layers = 2
 mesh = SubResource( 9 )
 material/0 = null
 
@@ -523,6 +524,57 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 7.25
 visible = false
 mesh = SubResource( 11 )
 material/0 = null
+
+[node name="Light" type="Spatial" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+
+[node name="SpotLight" type="SpotLight" parent="Navigation/NavigationMeshInstance/Light"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 10.5 )
+light_color = Color( 0.780392, 0.933333, 0.972549, 1 )
+light_energy = 1.5
+light_cull_mask = 4293918721
+spot_range = 15.0
+spot_angle = 56.35
+
+[node name="SpotLight2" type="SpotLight" parent="Navigation/NavigationMeshInstance/Light"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 10.5 )
+light_color = Color( 0.780392, 0.933333, 0.972549, 1 )
+light_energy = 1.5
+light_cull_mask = 4293918721
+spot_range = 15.0
+spot_angle = 56.35
+
+[node name="SpotLight3" type="SpotLight" parent="Navigation/NavigationMeshInstance/Light"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 8, 10.5 )
+light_color = Color( 0.780392, 0.933333, 0.972549, 1 )
+light_energy = 1.5
+light_cull_mask = 4293918721
+spot_range = 15.0
+spot_angle = 56.35
+
+[node name="SpotLight4" type="SpotLight" parent="Navigation/NavigationMeshInstance/Light"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -8, 10.5 )
+light_color = Color( 0.780392, 0.933333, 0.972549, 1 )
+light_energy = 1.5
+light_cull_mask = 4293918721
+spot_range = 15.0
+spot_angle = 56.35
+
+[node name="SpotLight5" type="SpotLight" parent="Navigation/NavigationMeshInstance/Light"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.75, 8, 10.5 )
+light_color = Color( 0.780392, 0.933333, 0.972549, 1 )
+light_energy = 1.5
+light_cull_mask = 4293918721
+spot_range = 15.0
+spot_angle = 56.35
+
+[node name="SpotLight6" type="SpotLight" parent="Navigation/NavigationMeshInstance/Light"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.75, -8, 10.5 )
+light_color = Color( 0.780392, 0.933333, 0.972549, 1 )
+light_energy = 1.5
+light_cull_mask = 4293918721
+spot_range = 15.0
+spot_angle = 56.35
 
 [node name="Jingle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
@@ -544,17 +596,17 @@ anims/pa-new_promotion = SubResource( 5 )
 
 [node name="Clocks" type="Spatial" parent="."]
 
-[node name="Clock" parent="Clocks" instance=ExtResource( 8 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17.63, 4, 0 )
+[node name="DigitalClock2" parent="Clocks" instance=ExtResource( 18 )]
+transform = Transform( 0.8, 0, -8.52651e-15, 0, 0.8, 0, 8.52651e-15, 0, 0.8, -17.63, 4, 0 )
 
-[node name="Clock2" parent="Clocks" instance=ExtResource( 8 )]
-transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 4, -17.33 )
+[node name="DigitalClock3" parent="Clocks" instance=ExtResource( 18 )]
+transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 0, 4, -17.33 )
 
-[node name="Clock3" parent="Clocks" instance=ExtResource( 8 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.326, 4, 0 )
+[node name="DigitalClock4" parent="Clocks" instance=ExtResource( 18 )]
+transform = Transform( -0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 17.326, 4, 0 )
 
-[node name="Clock4" parent="Clocks" instance=ExtResource( 8 )]
-transform = Transform( 2, 0, -2.13163e-14, 0, 2, 0, 2.13163e-14, 0, 2, 0, 5.75, 17.8061 )
+[node name="DigitalClock" parent="Clocks" instance=ExtResource( 18 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0, 4, 17.8061 )
 
 [node name="Promotion" type="Timer" parent="."]
 
@@ -658,6 +710,13 @@ material/0 = SubResource( 8 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 13 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="WorldEnvironment"]
+transform = Transform( 1, 0, 0, 0, -2.98023e-08, 1, 0, -1, -2.98023e-08, 0, 28.75, 0 )
+visible = false
+light_color = Color( 0.603922, 0.752941, 0.788235, 1 )
+light_cull_mask = 4293918721
+shadow_enabled = true
 
 [node name="StartLevel" type="Timer" parent="."]
 wait_time = 14.0
