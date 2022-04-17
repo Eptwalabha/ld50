@@ -35,18 +35,18 @@ extents = Vector3( 25, 0.5, 40 )
 material = ExtResource( 6 )
 size = Vector3( 50, 1, 80 )
 
-[sub_resource type="SpatialMaterial" id=13]
+[sub_resource type="SpatialMaterial" id=18]
 albedo_texture = ExtResource( 2 )
 
 [sub_resource type="QuadMesh" id=14]
-material = SubResource( 13 )
+material = SubResource( 18 )
 size = Vector2( 2, 2 )
 
-[sub_resource type="SpatialMaterial" id=15]
+[sub_resource type="SpatialMaterial" id=19]
 albedo_texture = ExtResource( 17 )
 
 [sub_resource type="QuadMesh" id=16]
-material = SubResource( 15 )
+material = SubResource( 19 )
 size = Vector2( 2, 2 )
 
 [sub_resource type="QuadMesh" id=9]
@@ -55,10 +55,10 @@ size = Vector2( 40, 40 )
 [sub_resource type="QuadMesh" id=12]
 size = Vector2( 40, 20 )
 
-[sub_resource type="SpatialMaterial" id=10]
+[sub_resource type="SpatialMaterial" id=20]
 
 [sub_resource type="QuadMesh" id=11]
-material = SubResource( 10 )
+material = SubResource( 20 )
 size = Vector2( 40, 40 )
 
 [sub_resource type="Animation" id=3]
@@ -232,13 +232,13 @@ tracks/3/keys = {
 "values": [ ExtResource( 7 ) ]
 }
 
-[sub_resource type="ViewportTexture" id=7]
+[sub_resource type="ViewportTexture" id=21]
 viewport_path = NodePath("Viewport")
 
 [sub_resource type="SpatialMaterial" id=8]
 resource_local_to_scene = true
 flags_unshaded = true
-albedo_texture = SubResource( 7 )
+albedo_texture = SubResource( 21 )
 
 [sub_resource type="BoxShape" id=17]
 extents = Vector3( 6, 1.75, 2.75 )

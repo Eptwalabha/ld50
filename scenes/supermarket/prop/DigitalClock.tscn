@@ -4,13 +4,13 @@
 [ext_resource path="res://scenes/supermarket/prop/DigitalClockScreen.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/model/supermarket/prop/DigitalClockModel.tscn" type="PackedScene" id=3]
 
-[sub_resource type="QuadMesh" id=1]
+[sub_resource type="QuadMesh" id=3]
 size = Vector2( 2, 1 )
 
 [sub_resource type="ViewportTexture" id=2]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=4]
 resource_local_to_scene = true
 albedo_texture = SubResource( 2 )
 
@@ -25,11 +25,12 @@ render_target_v_flip = true
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( -4.15258e-08, 0, 0.95, 0, 0.95, 0, -0.95, 0, -4.15258e-08, 0.0566441, 0, 0 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
 
 [node name="TicTac" type="AudioStreamPlayer3D" parent="."]
 
 [node name="digital-clock" parent="." instance=ExtResource( 3 )]
 
 [connection signal="ticked" from="Viewport/Screen" to="." method="_on_Screen_ticked"]
+[connection signal="timeout" from="Viewport/Screen" to="." method="_on_Screen_timeout"]

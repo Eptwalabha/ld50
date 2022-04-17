@@ -31,7 +31,7 @@ texture = ExtResource( 1 )
 hframes = 5
 vframes = 2
 
-[node name="M3" type="Sprite" parent="Pivot"]
+[node name="Colon" type="Sprite" parent="Pivot"]
 texture = ExtResource( 3 )
 
 [node name="S1" type="Sprite" parent="Pivot"]
