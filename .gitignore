@@ -8,6 +8,7 @@ export_presets.cfg
 exports/
 builds/
 *.mp3
+scenes/test
 
 *.translation
 *.png~
