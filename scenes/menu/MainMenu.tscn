@@ -353,7 +353,7 @@ align_right = true
 
 [node name="GameMenu" parent="CanvasLayer" instance=ExtResource( 1 )]
 visible = false
-main_title = "settings"
+main_title = "title-settings"
 show_btn_back = true
 show_btn_resume = false
 show_btn_quit = false

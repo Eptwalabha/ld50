@@ -126,7 +126,7 @@ func _play_panel_change(entering : bool) -> void:
 
 func _on_Selection_button_selected(button_name) -> void:
 	match button_name:
-		"quit_menu":
+		"quit-menu":
 			menu_selection.deselect_all()
 			emit_signal("resume_game_requested")
 		"resume_game":

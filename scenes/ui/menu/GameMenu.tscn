@@ -58,7 +58,7 @@ margin_bottom = 580.0
 margin_right = 984.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 6 )
-text = "game_paused"
+text = "game-paused"
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/MainMenu"]
 margin_top = 38.0
@@ -100,7 +100,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 250.0
 margin_bottom = 48.0
-button_name = "quit_menu"
+button_name = "quit-menu"
 
 [node name="Resume" parent="MarginContainer/MainMenu/VBoxContainer/Menu/Scroll/Selection" instance=ExtResource( 5 )]
 anchor_right = 0.0

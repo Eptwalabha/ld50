@@ -26,6 +26,7 @@ visible = false
 
 [node name="GameMenu" parent="." instance=ExtResource( 6 )]
 pause_mode = 2
+main_title = "game-paused"
 
 [connection signal="announce_dialog_ended" from="Supermarket" to="." method="_on_Supermarket_announce_dialog_ended"]
 [connection signal="announce_dialog_started" from="Supermarket" to="." method="_on_Supermarket_announce_dialog_started"]
