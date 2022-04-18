@@ -58,7 +58,7 @@ margin_bottom = 580.0
 margin_right = 984.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 6 )
-text = "Pause"
+text = "game_paused"
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/MainMenu"]
 margin_top = 38.0
@@ -95,27 +95,35 @@ margin_right = 250.0
 margin_bottom = 494.0
 highlight = false
 
-[node name="Resume" parent="MarginContainer/MainMenu/VBoxContainer/Menu/Scroll/Selection" instance=ExtResource( 5 )]
+[node name="QuitMenu" parent="MarginContainer/MainMenu/VBoxContainer/Menu/Scroll/Selection" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 250.0
 margin_bottom = 48.0
-button_name = "resume_game"
+button_name = "quit_menu"
 
-[node name="Settings" parent="MarginContainer/MainMenu/VBoxContainer/Menu/Scroll/Selection" instance=ExtResource( 5 )]
+[node name="Resume" parent="MarginContainer/MainMenu/VBoxContainer/Menu/Scroll/Selection" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 48.0
 margin_right = 250.0
 margin_bottom = 96.0
-button_name = "settings_panel"
+button_name = "resume_game"
 
-[node name="Credits" parent="MarginContainer/MainMenu/VBoxContainer/Menu/Scroll/Selection" instance=ExtResource( 5 )]
+[node name="Settings" parent="MarginContainer/MainMenu/VBoxContainer/Menu/Scroll/Selection" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 96.0
 margin_right = 250.0
 margin_bottom = 144.0
+button_name = "settings_panel"
+
+[node name="Credits" parent="MarginContainer/MainMenu/VBoxContainer/Menu/Scroll/Selection" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 144.0
+margin_right = 250.0
+margin_bottom = 192.0
 button_name = "credits_panel"
 
 [node name="Quit" parent="MarginContainer/MainMenu/VBoxContainer/Menu/Scroll/Selection" instance=ExtResource( 5 )]

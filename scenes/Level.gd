@@ -20,13 +20,13 @@ enum STATE {
 var game_state : int = STATE.INTRO
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	_prepare_current_level()
 
 func _prepare_current_level() -> void:
 	var level = Data.LEVELS[Data.current_level]
 	intro.start(Data.current_level)
 	player.has_control = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	var list = supermarket.generate(level)
 	grocery_list.set_list(list)
 	player_can_checkout = false
@@ -75,6 +75,7 @@ func pause_game() -> void:
 	game_menu.open()
 
 func resume_game() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	game_state = STATE.PLAYING
 	game_menu.close()
 	get_tree().set_input_as_handled()
@@ -122,7 +123,8 @@ func _on_GameMenu_resume_game_requested() -> void:
 	resume_game()
 
 func _on_GameMenu_quit_game_requested() -> void:
-	get_tree().quit()
+	get_tree().paused = false
+	get_tree().change_scene("res://scenes/menu/MainMenu.tscn")
 
 func _on_GroceryList_all_items_picked_up() -> void:
 	player_can_checkout = true

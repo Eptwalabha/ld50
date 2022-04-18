@@ -1,4 +1,5 @@
 "key"	"en"	"fr"
+"game-title"	"Promo-Sapiens"	"Promo-Sapiens"
 "game-by"	"A game by"	"Un jeu de"
 "pa-thanks_for_shoping"	"SuperSales thanks you for shoping with us today"	"Les magasins SuperSales vous remercient de votre visite"
 "pa-please_checkout"	"Please bring all your items to the checkout now"	"Nous vous prions de bien vouloir vous diriger vers les caisses de payments"
@@ -133,3 +134,7 @@ N'hésitez pas à faire ce que vous voulez avec ces ressources et le projet lui-
 "lvl_quote_3"	"Earth provides enough to satisfy every man's needs, but not every man's greed"	"La Terre est suffisante pour les besoins de l'hommes, mais pas assez pour sa cupidité"
 "lvl_quote_4"	"We no longer live life. We consume it"	"Nous ne vivons plus notre vie, nous la consommons"
 "lvl_quote_5"	"The hardest thing is to take less when you can get more"	"Le plus dur, c'est de prendre moins lorsqu'on peut prendre plus"
+"main-menu-start"	"Start new game"	"Nouvelle partie"
+"main-menu-continue"	"Continue"	"Continuer"
+"main-menu-settings"	"Settings"	"Paramètres"
+"main-menu-quit"	"Quit game"	"Quitter le jeu"

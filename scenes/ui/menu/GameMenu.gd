@@ -12,6 +12,11 @@ onready var menu_settings : GameSubMenu = $MarginContainer/SubMenus/Settings
 onready var panel_change_sound : AudioStreamPlayer = $PanelChange
 onready var settings : MenuSettings = $MarginContainer/SubMenus/Settings
 
+export(String) var main_title : String = "pause"
+export(bool) var show_btn_back : bool = false
+export(bool) var show_btn_resume : bool = true
+export(bool) var show_btn_quit : bool = true
+
 enum MENU_STATE {
 	MAIN_MENU,
 	SUB_MENU
@@ -21,6 +26,10 @@ var current_state = MENU_STATE.MAIN_MENU
 var current_menu : GameSubMenu = null
 
 func _ready() -> void:
+	menu_selection.find_node("Resume").visible = show_btn_resume
+	menu_selection.find_node("QuitMenu").visible = show_btn_back
+	menu_selection.find_node("Quit").visible = show_btn_quit
+	$MarginContainer/MainMenu/Label.text = main_title
 	for menu in other_menus.get_children():
 		if menu is GameSubMenu:
 			menu.connect("close_sub_menu_requested", self, "_on_sub_menu_closed", [menu])
@@ -44,7 +53,6 @@ func open() -> void:
 	show()
 
 func close() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	set_process_input(false)
 	set_process(false)
 	_play_panel_change(false)
@@ -118,6 +126,9 @@ func _play_panel_change(entering : bool) -> void:
 
 func _on_Selection_button_selected(button_name) -> void:
 	match button_name:
+		"quit_menu":
+			menu_selection.deselect_all()
+			emit_signal("resume_game_requested")
 		"resume_game":
 			menu_selection.deselect_all()
 			emit_signal("resume_game_requested")

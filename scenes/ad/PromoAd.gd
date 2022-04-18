@@ -5,6 +5,9 @@ export(bool) var on : bool = false
 onready var item : AnimatedSprite = $Pivot/What
 onready var pivot : Node2D = $Pivot
 onready var timer : Timer = $Timer
+onready var roulette : Timer = $Roulette
+
+var current_item_type : String = ""
 var acc : float = 0.0
 
 func _ready() -> void:
@@ -24,10 +27,13 @@ func _process(delta: float) -> void:
 	pivot.rotation_degrees = sin(3.0 * acc) * 30.0
 
 func set_current_promotion(item_type: String, _duration: float) -> void:
+	current_item_type = item_type
 	item.play("spin")
-	yield(get_tree().create_timer(3), "timeout")
-	item.stop()
-	item.frame = Data.ITEMS.find(item_type)
+	roulette.start(2.5)
 
 func _on_Timer_timeout() -> void:
 	$AnimationPlayer.play("zoom")
+
+func _on_Roulette_timeout() -> void:
+	item.stop()
+	item.frame = Data.ITEMS.find(current_item_type)

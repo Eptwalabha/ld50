@@ -119,6 +119,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/ui/menu/core/form/keymapping/KeyRemapper.gd"
 }, {
+"base": "Node",
+"class": "MainMenu",
+"language": "GDScript",
+"path": "res://scenes/menu/MainMenu.gd"
+}, {
 "base": "GameSubMenuWithOptions",
 "class": "MenuSettings",
 "language": "GDScript",
@@ -128,6 +133,11 @@ _global_script_classes=[ {
 "class": "PickableItem",
 "language": "GDScript",
 "path": "res://scenes/supermarket/item/PickableItem.gd"
+}, {
+"base": "ColorRect",
+"class": "ScreenTransition",
+"language": "GDScript",
+"path": "res://scenes/ui/transitions/ScreenTransition.gd"
 }, {
 "base": "GameSubMenuPanel",
 "class": "SettingsVideo",
@@ -222,8 +232,10 @@ _global_script_class_icons={
 "KeyMappingDialog": "",
 "KeyMappingLine": "",
 "KeyRemapper": "",
+"MainMenu": "",
 "MenuSettings": "",
 "PickableItem": "",
+"ScreenTransition": "",
 "SettingsVideo": "",
 "SettingsVolume": "",
 "Shelve": "",
