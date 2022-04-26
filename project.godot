@@ -256,12 +256,17 @@ _global_script_class_icons={
 
 config/name="ld50 - delay the inevitable"
 run/main_scene="res://splash-screen/SplashScreen.tscn"
+boot_splash/image="res://splash-screen/assets/godot-logo-white.png"
 config/icon="res://assets/images/icon/icon.svg"
 config/version="0.0.0"
 
 [autoload]
 
 Data="*res://scenes/autoload.gd"
+
+[debug]
+
+settings/stdout/print_fps=true
 
 [display]
 

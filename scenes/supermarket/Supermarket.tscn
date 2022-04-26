@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://assets/sound/supermarket/closing-announcement.mp3" type="AudioStream" id=1]
 [ext_resource path="res://assets/images/groceries/sorry.svg" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/supermarket/shelves/variation/ShelveFruit.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/material/floor-tile.tres" type="Material" id=6]
 [ext_resource path="res://assets/sound/supermarket/announcement-new-promotion.mp3" type="AudioStream" id=7]
+[ext_resource path="res://scenes/supermarket/prop/AislePanel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/sound/supermarket/supermarket.mp3" type="AudioStream" id=9]
 [ext_resource path="res://scenes/supermarket/shelves/variation/ShelvesDouble8.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/supermarket/shelves/variation/Fridge.tscn" type="PackedScene" id=11]
@@ -35,18 +36,18 @@ extents = Vector3( 25, 0.5, 40 )
 material = ExtResource( 6 )
 size = Vector3( 50, 1, 80 )
 
-[sub_resource type="SpatialMaterial" id=18]
+[sub_resource type="SpatialMaterial" id=22]
 albedo_texture = ExtResource( 2 )
 
 [sub_resource type="QuadMesh" id=14]
-material = SubResource( 18 )
+material = SubResource( 22 )
 size = Vector2( 2, 2 )
 
-[sub_resource type="SpatialMaterial" id=19]
+[sub_resource type="SpatialMaterial" id=23]
 albedo_texture = ExtResource( 17 )
 
 [sub_resource type="QuadMesh" id=16]
-material = SubResource( 19 )
+material = SubResource( 23 )
 size = Vector2( 2, 2 )
 
 [sub_resource type="QuadMesh" id=9]
@@ -55,10 +56,10 @@ size = Vector2( 40, 40 )
 [sub_resource type="QuadMesh" id=12]
 size = Vector2( 40, 20 )
 
-[sub_resource type="SpatialMaterial" id=20]
+[sub_resource type="SpatialMaterial" id=24]
 
 [sub_resource type="QuadMesh" id=11]
-material = SubResource( 20 )
+material = SubResource( 24 )
 size = Vector2( 40, 40 )
 
 [sub_resource type="Animation" id=3]
@@ -575,6 +576,16 @@ light_energy = 1.5
 light_cull_mask = 4293918721
 spot_range = 15.0
 spot_angle = 56.35
+
+[node name="Test" type="Spatial" parent="Navigation"]
+
+[node name="AislePanel" parent="Navigation/Test" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.5, 3.5, 4 )
+text = "A"
+
+[node name="AislePanel2" parent="Navigation/Test" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5, 3.5, 4 )
+text = "PQ soupe"
 
 [node name="Jingle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

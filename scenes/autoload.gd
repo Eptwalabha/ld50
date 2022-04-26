@@ -5,7 +5,7 @@ signal crosshair_visibility_changed(visible)
 
 const GameConfig = preload("res://save-system/GameConfig.gd")
 
-const DEBUG : bool = false
+const DEBUG : bool = true
 const DEBUG_ENVIRONMENT : bool = false
 
 const FOV_MIN : int = 40
